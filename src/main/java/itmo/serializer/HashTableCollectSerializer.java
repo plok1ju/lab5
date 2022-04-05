@@ -4,7 +4,8 @@ import itmo.KeyDragonPair;
 import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class HashTableCollectSerializer {
 
