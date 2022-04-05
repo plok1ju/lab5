@@ -5,17 +5,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import itmo.collection.HashTableCollection;
-import itmo.manager.CollectionManager;
 import itmo.model.Dragon;
 import itmo.serializer.HashTableCollectSerializer;
 
-import javax.xml.stream.XMLOutputFactory;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Hashtable;
 
 public class FileSaver {
 
@@ -27,7 +21,7 @@ public class FileSaver {
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT); // красивый вывод
         xmlMapper.registerModule(new JavaTimeModule()); // сериализация время
 
-        xmlMapper.writeValue(new File("test.xml"), serializer);
+        xmlMapper.writeValue(new File(System.getenv("VAR")), serializer);
 
 
     }

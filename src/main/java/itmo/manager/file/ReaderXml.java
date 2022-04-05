@@ -19,7 +19,7 @@ public class ReaderXml {
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT); // красивый вывод
         xmlMapper.registerModule(new JavaTimeModule()); // сериализация время
 
-        HashTableCollectDeserializer deserializer = xmlMapper.readValue(new File("test.xml"), HashTableCollectDeserializer.class); // десериализация в класс Dragon
+        HashTableCollectDeserializer deserializer = xmlMapper.readValue(new File(System.getenv("VAR")), HashTableCollectDeserializer.class); // десериализация в класс Dragon
         HashTableCollection<Integer, Dragon> collection = deserializer.getCollection();
 
         return collection;
