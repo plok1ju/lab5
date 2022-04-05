@@ -13,12 +13,16 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <!-- модуль с зависимостями -->
     <dependencies>
+        <!-- чтобы можно было xmlить -->
         <dependency>
+            <!-- имя библиотеки -->
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
             <version>2.13.2</version>
         </dependency>
+        <!-- чтобы можно были xmlить дату -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
