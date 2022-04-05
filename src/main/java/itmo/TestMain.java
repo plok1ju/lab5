@@ -1,18 +1,11 @@
 package itmo;
 
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import itmo.collection.HashTableCollection;
-import itmo.deserializers.HashTableCollectDeserializer;
 import itmo.manager.file.FileSaver;
 import itmo.manager.file.ReaderXml;
 import itmo.model.*;
-import itmo.serializer.HashTableCollectSerializer;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
 import java.time.LocalDateTime;
 import java.util.Date;
 

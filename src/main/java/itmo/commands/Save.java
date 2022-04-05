@@ -1,11 +1,5 @@
 package itmo.commands;
 
-import itmo.manager.file.FileSaver;
-import itmo.model.Dragon;
-
-import java.io.File;
-import java.util.Hashtable;
-
 public class Save {
 
 //    public void saveCollect(Hashtable<Integer, Dragon> dragons, File file){
