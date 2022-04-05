@@ -3,8 +3,9 @@ package itmo.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.Objects;
 
-public class Dragon {
+public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть
     // уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -73,6 +74,7 @@ public class Dragon {
         this.creationDate = creationDate;
     }
 
+    @Override
     public Integer getAge() {
         return age;
     }
@@ -89,6 +91,7 @@ public class Dragon {
         this.description = description;
     }
 
+    @Override
     public Color getColor() {
         return color;
     }
@@ -128,5 +131,23 @@ public class Dragon {
                 ", killer=" + killer.toString() + '}';
         return s;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dragon dragon = (Dragon) o;
+        return Objects.equals(id, dragon.id) && Objects.equals(name, dragon.name) && Objects.equals(coordinates, dragon.coordinates) && Objects.equals(creationDate, dragon.creationDate) && Objects.equals(age, dragon.age) && Objects.equals(description, dragon.description) && color == dragon.color && character == dragon.character && Objects.equals(killer, dragon.killer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, coordinates, creationDate, age, description, color, character, killer);
+    }
+
+    @Override
+    public int compareTo(Dragon o) {
+        return this.id.compareTo(o.id);
     }
 }

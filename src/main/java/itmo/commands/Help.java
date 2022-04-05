@@ -1,39 +1,27 @@
 package itmo.commands;
 
-import java.util.HashMap;
-import java.util.Map;
+public class Help implements Command{
 
-public class Help {
-    private HashMap<String, String> vocabulary = new HashMap<>(); // создание словаря
+    public Help(){}
 
-    public boolean create(){ // наполнение словаря
-
-        vocabulary.put("clear", "Clean itmo.collection");
-        vocabulary.put("execute script", "Read file and do itmo.commands from file");
-        vocabulary.put("exit", "End program (without saving itmo.collection in file)");
-        vocabulary.put("info", "Print information about itmo.collection");
-        vocabulary.put("insert {key}", "Add new element by key");
-        vocabulary.put("print descending", "Print element of itmo.collection in descending order");
-        vocabulary.put("remove all by color", "Delete elements with certain value of color");
-        vocabulary.put("remove lower", "Delete all elements, if they less than enter element");
-        vocabulary.put("help", "Command help output");
-        vocabulary.put("remove greater key", "Delete all elements, if them key bigger than enter key");
-        vocabulary.put("remove key", "Delete element by key");
-        vocabulary.put("replace if lowe","replace value by key, if the new value less then older");
-        vocabulary.put("save", "Save itmo.collection in file");
-        vocabulary.put("Show", "Show all elements in itmo.collection");
-        vocabulary.put("update id", "Change element fields by the ID");
-        return true;
-
+    @Override
+    public void execute(){
+        System.out.println("help : вывести справку по доступным командам\n" +
+                "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
+                "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +
+                "insert_key {element} : добавить новый элемент с заданным ключом\n" +
+                "update_id {element} : обновить значение элемента коллекции, id которого равен заданному\n" +
+                "remove_key key : удалить элемент из коллекции по его ключу\n" +
+                "clear : очистить коллекцию\n" +
+                "save : сохранить коллекцию в файл\n" +
+                "execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.\n" +
+                "exit : завершить программу (без сохранения в файл)\n" +
+                "remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный\n" +
+                "replace_if_lowe null {element} : заменить значение по ключу, если новое значение меньше старого\n" +
+                "remove_greater_key key : удалить из коллекции все элементы, ключ которых превышает заданный\n" +
+                "remove_all_by_color color : удалить из коллекции все элементы, значение поля color которого эквивалентно заданному\n" +
+                "sum_of_age : вывести сумму значений поля age для всех элементов коллекции\n" +
+                "print_descending : вывести элементы коллекции в порядке убывания");
     }
 
-    public void getVocabulary() {
-        for(Map.Entry<String, String> entry: this.vocabulary.entrySet())
-            System.out.println(entry.getKey() + " - " + entry.getValue());
-
-    }
-
-    public void setVocabulary(HashMap<String, String> vocabulary) {
-        this.vocabulary = vocabulary;
-    }
 }

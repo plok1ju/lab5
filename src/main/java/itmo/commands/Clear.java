@@ -1,14 +1,21 @@
 package itmo.commands;
 
-import itmo.model.Dragon;
+import itmo.collection.HashTableCollection;
 
-import java.util.Hashtable;
+public class Clear implements Command{
 
-public class Clear {
+    private final HashTableCollection<?, ?> collection; // ? - все равно какой тип
 
-    public void removeCollect(Hashtable<Integer, Dragon> dragons){
-        dragons.clear();
+    public Clear(HashTableCollection<?, ?> collection) {
+        this.collection = collection;
+    }
+
+    @Override
+    public void execute(){
+        collection.clear();
         System.out.println("Collection is clear");
 
     }
+
+
 }

@@ -1,18 +1,23 @@
 package itmo.commands;
 
-import itmo.model.Dragon;
+import itmo.collection.HashTableCollection;
 
-import java.util.Enumeration;
-import java.util.Hashtable;
+import java.util.List;
 
-public class Show {
+public class Show implements Command{
 
-    public void showCollection(Hashtable<Integer, Dragon> dragons){
-        Enumeration hashKeys = dragons.keys();
-        while (hashKeys.hasMoreElements()){
-            Integer str = (Integer) hashKeys.nextElement();
-            Dragon dragon= dragons.get(str);
-            System.out.println(dragon.toString());
-        }
+    private final HashTableCollection<?, ?> collection;
+
+    public Show(HashTableCollection<?, ?> collection){
+        this.collection = collection;
+    }
+
+
+    @Override
+    public void execute() {
+        List<?> keys = collection.getKeysAsList();
+        keys.forEach(key -> System.out.println("Key: " + key + " " + collection.get(key).toString()));
+
+
     }
 }
