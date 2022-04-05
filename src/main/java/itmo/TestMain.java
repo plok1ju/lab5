@@ -28,6 +28,7 @@ public class TestMain {
         ReaderXml readerXml = new ReaderXml();
         HashTableCollection<Integer, Dragon> collection = readerXml.returnCollect();
         System.out.println(collection);
+        System.out.println("555");
 
 
     }
