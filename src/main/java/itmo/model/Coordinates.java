@@ -35,7 +35,10 @@ public class Coordinates {
      * Добавление координаты x
      * @param x - значение поля x
      */
-    public void setX(Double x) {
+    public void setX(Double x) throws Exception {
+        if(x == null){
+            throw new Exception("Координата х не может быть null");
+        }
         this.x = x;
     }
 

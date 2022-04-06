@@ -1,7 +1,60 @@
 package itmo.manager;
 
+import itmo.collection.HashTableCollection;
+import itmo.commands.Clear;
+import itmo.commands.Command;
+import itmo.commands.Info;
+import itmo.commands.Show;
+import itmo.model.Dragon;
+
 public class CommandsManager {
 
+    private final HashTableCollection<Integer, Dragon> collection;
+
+    public CommandsManager(HashTableCollection<Integer, Dragon> collection) {
+        this.collection = collection;
+    }
+
+
+    public Command getCommand(String commandLine) throws Exception {
+        String[] arrayLine = commandLine.split(" ");
+        if(arrayLine.length == 0){
+            throw new Exception();
+
+        }
+        String command = arrayLine[0];
+        switch (command){
+            case "clear" :{
+
+                return new Clear(collection);
+            }
+
+            case "show" :{
+
+                return new Show(collection);
+            }
+
+            case "info" :{
+
+                return new Info(collection);
+
+            }
+
+            case "insert" :{
+
+                if(arrayLine.length < 2){
+                    throw new Exception();
+                }
+                break;
+                Integer key = Integer.parseInt(arrayLine[1]);
+
+
+            }
+
+        }
+
+
+    }
 //    public void run(CollectInfo collectInfo, File file) {
 //        boolean flag = true;
 //        while (flag) {
