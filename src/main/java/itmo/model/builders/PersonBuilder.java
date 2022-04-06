@@ -5,6 +5,8 @@ import itmo.model.Country;
 import itmo.model.Person;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class PersonBuilder {
 
@@ -49,8 +51,8 @@ public class PersonBuilder {
     private void buildBirthday(Scannable scannable){
         if(isConsole){
             try{
-                System.out.println("Введите дату: ");
-                LocalDateTime birthday = LocalDateTime.parse(scannable.scanString());
+                System.out.println("Введите дату в формате yyyy-MM-dd HH:mm: ");
+                LocalDateTime birthday = LocalDateTime.parse(scannable.scanString(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                 person.setBirthday(birthday);
             }
             catch (Exception e){
@@ -59,7 +61,7 @@ public class PersonBuilder {
             }
         }
         else {
-            LocalDateTime birthday = LocalDateTime.parse(scannable.scanString());
+            LocalDateTime birthday = LocalDateTime.parse(scannable.scanString(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             person.setBirthday(birthday);
         }
     }
@@ -67,8 +69,14 @@ public class PersonBuilder {
     private void buildHeight(Scannable scannable){
         if(isConsole){
             try{
-                System.out.println("Введите рост: ");
-                Long height = Long.parseLong(scannable.scanString());
+                System.out.println("Введите рост:");
+                String heightString = scannable.scanString();
+                Long height;
+                if (Objects.equals(heightString, "")){
+                    height = null;
+                    person.setHeight(height);
+                }
+                height = Long.parseLong(scannable.scanString());
                 person.setHeight(height);
             }
             catch (Exception e){
@@ -77,7 +85,13 @@ public class PersonBuilder {
             }
         }
         else {
-            Long height = Long.parseLong(scannable.scanString());
+            String heightString = scannable.scanString();
+            Long height;
+            if (Objects.equals(heightString, "")){
+                height = null;
+                person.setHeight(height);
+            }
+            height = Long.parseLong(scannable.scanString());
             person.setHeight(height);
         }
     }
@@ -106,7 +120,7 @@ public class PersonBuilder {
         if(isConsole){
             try {
                 System.out.println("Выберете одну из предложенных национальностей");
-                System.out.println("GERMANY, CHINA, ITALY");
+                System.out.println(Country.CHINA.getValues());
                 Country nationality = Country.valueOf(scannable.scanString());
                 person.setNationality(nationality);
             }

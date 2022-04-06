@@ -7,6 +7,7 @@ import itmo.model.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class TestMain {
@@ -30,6 +31,8 @@ public class TestMain {
         System.out.println(collection);
         System.out.println("555");
 
+        LocalDateTime birthday = LocalDateTime.parse("2022-04-07 00:19", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        System.out.println(birthday);
 
     }
 }

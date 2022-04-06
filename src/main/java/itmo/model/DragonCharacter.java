@@ -1,5 +1,7 @@
 package itmo.model;
 
+import java.util.Arrays;
+
 public enum DragonCharacter {
     WISE("Wise"),
     GOOD("Good"),
@@ -24,5 +26,11 @@ public enum DragonCharacter {
      */
     public String getCharacter() {
         return character;
+    }
+
+
+    public String getValues() {
+        String countries = Arrays.toString(DragonCharacter.values());
+        return countries.replace("[", "").replace("]", "");
     }
 }

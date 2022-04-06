@@ -6,6 +6,7 @@ import itmo.model.Dragon;
 import itmo.model.DragonCharacter;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class DragonBuilder {
 
@@ -24,7 +25,7 @@ public class DragonBuilder {
         this.buildPerson(scannable);
         this.buildAge(scannable);
         this.buildDescription(scannable);
-        this.buildColour(scannable);
+        this.buildColor(scannable);
         this.buildCharacter(scannable);
 
         return this.dragon;
@@ -74,6 +75,9 @@ public class DragonBuilder {
             try{
                 System.out.println("Введите описание дракона:");
                 String description = scannable.scanString();
+                if(Objects.equals(description, "")){
+                    description = null;
+                }
                 dragon.setDescription(description);
 
             }
@@ -85,21 +89,24 @@ public class DragonBuilder {
         }
         else{
             String description = scannable.scanString();
+            if(Objects.equals(description, "")){
+                description = null;
+            }
             dragon.setDescription(description);
         }
     }
 
-    private void buildColour(Scannable scannable){
+    private void buildColor(Scannable scannable){
         if(isConsole){
             try{
                 System.out.println("Выберете одно из предложенных значений цвета");
-                System.out.println("BLUE, YELLOW, ORANGE, WHITE");
+                System.out.println(Color.ORANGE.getValues());
                 Color color = Color.valueOf(scannable.scanString());
                 dragon.setColor(color);
             }
             catch (Exception e){
                 System.out.println("Что-то пошло не так: " + e.getMessage());
-                this.buildColour(scannable);
+                this.buildColor(scannable);
             }
         }
         else {
@@ -112,7 +119,7 @@ public class DragonBuilder {
         if(isConsole){
             try{
                 System.out.println("Выберете одно из предложенных значений характера");
-                System.out.println("WISE, GOOD, FICKLE");
+                System.out.println(DragonCharacter.FICKLE.getValues());
                 DragonCharacter character = DragonCharacter.valueOf(scannable.scanString());
                 dragon.setCharacter(character);
             }
