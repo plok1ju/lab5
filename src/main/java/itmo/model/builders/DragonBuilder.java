@@ -1,7 +1,9 @@
 package itmo.model.builders;
 
 import itmo.io.Scannable;
+import itmo.model.Color;
 import itmo.model.Dragon;
+import itmo.model.DragonCharacter;
 
 import java.util.Date;
 
@@ -19,6 +21,11 @@ public class DragonBuilder {
         this.buildName(scannable);
         this.buildCoordinates(scannable);
         this.setCreationDate();
+        this.buildPerson(scannable);
+        this.buildAge(scannable);
+        this.buildDescription(scannable);
+        this.buildColour(scannable);
+        this.buildCharacter(scannable);
 
         return this.dragon;
 
@@ -27,7 +34,7 @@ public class DragonBuilder {
     private void buildName(Scannable scannable) throws Exception {
         if(isConsole){
             try {
-                System.out.println("Введите имя: ");
+                System.out.println("Введите имя:");
                 String nameDragon = scannable.scanString();
                 dragon.setName(nameDragon);
 
@@ -43,6 +50,85 @@ public class DragonBuilder {
         }
     }
 
+    private void buildAge(Scannable scannable) {
+        if(isConsole){
+            try{
+                System.out.println("Введите возраст:");
+                Integer age = Integer.parseInt(scannable.scanString());
+                dragon.setAge(age);
+            }
+            catch (Exception e){
+                System.out.println("Что-то пошло не так: " + e.getMessage());
+                this.buildAge(scannable);
+
+            }
+        }
+        else {
+            Integer age = Integer.parseInt(scannable.scanString());
+            dragon.setAge(age);
+        }
+    }
+
+    private void buildDescription(Scannable scannable){
+        if(isConsole){
+            try{
+                System.out.println("Введите описание дракона:");
+                String description = scannable.scanString();
+                dragon.setDescription(description);
+
+            }
+            catch (Exception e){
+                System.out.println("Что-то пошло не так: " + e.getMessage());
+                this.buildDescription(scannable);
+
+            }
+        }
+        else{
+            String description = scannable.scanString();
+            dragon.setDescription(description);
+        }
+    }
+
+    private void buildColour(Scannable scannable){
+        if(isConsole){
+            try{
+                System.out.println("Выберете одно из предложенных значений цвета");
+                System.out.println("BLUE, YELLOW, ORANGE, WHITE");
+                Color color = Color.valueOf(scannable.scanString());
+                dragon.setColor(color);
+            }
+            catch (Exception e){
+                System.out.println("Что-то пошло не так: " + e.getMessage());
+                this.buildColour(scannable);
+            }
+        }
+        else {
+            Color color = Color.valueOf(scannable.scanString());
+            dragon.setColor(color);
+        }
+    }
+
+    private void buildCharacter(Scannable scannable){
+        if(isConsole){
+            try{
+                System.out.println("Выберете одно из предложенных значений характера");
+                System.out.println("WISE, GOOD, FICKLE");
+                DragonCharacter character = DragonCharacter.valueOf(scannable.scanString());
+                dragon.setCharacter(character);
+            }
+            catch (Exception e){
+                System.out.println("Что-то пошло не так: " + e.getMessage());
+                this.buildCharacter(scannable);
+            }
+        }
+        else {
+            DragonCharacter character = DragonCharacter.valueOf(scannable.scanString());
+            dragon.setCharacter(character);
+        }
+    }
+
+
+
     private void buildCoordinates(Scannable scannable) throws Exception {
         CoordinatesBuilder coordinatesBuilder = new CoordinatesBuilder(isConsole);
         dragon.setCoordinates(coordinatesBuilder.build(scannable));
@@ -54,6 +140,12 @@ public class DragonBuilder {
         dragon.setCreationDate(date);
 
     }
+
+    private void buildPerson(Scannable scannable) {
+        PersonBuilder personBuilder = new PersonBuilder(isConsole);
+        dragon.setKiller(personBuilder.build(scannable));
+    }
+
 
 
 
