@@ -19,7 +19,7 @@ public class CommandsManager {
     public Command getCommand(String commandLine) throws Exception {
         String[] arrayLine = commandLine.split(" ");
         if(arrayLine.length == 0){
-            throw new Exception();
+            throw new Exception("Нет команд");
 
         }
         String command = arrayLine[0];
