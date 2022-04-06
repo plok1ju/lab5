@@ -13,7 +13,7 @@ public class Clear implements Command{
     @Override
     public void execute(){
         collection.clear();
-        System.out.println("Collection is clear");
+        System.out.println("Коллекция очищена");
 
     }
 

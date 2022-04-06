@@ -11,11 +11,17 @@ import java.util.Collections;
 
 public class HashTableCollectSerializer {
 
+    /**
+     * Описание полей класса
+     */
     private final KeyDragonPair[] keyDragonPairs;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private final LocalDateTime localDateTime;
 
-
+    /**
+     * Конструктор класса HashTableCollectSerializer
+     * @param hashTableCollection - значение поля hashTableCollection
+     */
     public HashTableCollectSerializer(HashTableCollection<Integer, Dragon> hashTableCollection){
         ArrayList<Integer> keys = Collections.list(hashTableCollection.keys());
         keyDragonPairs = new KeyDragonPair[keys.size()];
@@ -26,10 +32,18 @@ public class HashTableCollectSerializer {
         this.localDateTime = hashTableCollection.getDateTime();
     }
 
+    /**
+     * Получение keyDragonPairs
+     * @return - значение поля keyDragonPairs
+     */
     public KeyDragonPair[] getKeyDragonPairs() {
         return keyDragonPairs;
     }
 
+    /**
+     * Получение даты создания
+     * @return - значение поля localDateTime
+     */
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
     }

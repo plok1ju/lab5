@@ -20,7 +20,7 @@ public class PrintDescending implements Command{
         keys.sort(Comparator.reverseOrder()); // реверс ключей
         keys.forEach(key -> {
             Object o = collection.get(key);
-            System.out.println("Key " + key + ": " + o);
+            System.out.println("Ключ элемента " + key + ": " + o);
 
         });
     }
