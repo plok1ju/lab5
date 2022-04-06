@@ -45,14 +45,14 @@ public class CommandsManager {
                 if(arrayLine.length < 2){
                     throw new Exception();
                 }
-                break;
                 Integer key = Integer.parseInt(arrayLine[1]);
+                break;
 
 
             }
 
         }
-
+        return null;
 
     }
 //    public void run(CollectInfo collectInfo, File file) {
