@@ -6,7 +6,6 @@ import itmo.model.Person;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 public class PersonBuilder {
 
@@ -15,6 +14,7 @@ public class PersonBuilder {
 
 
     public PersonBuilder(boolean isConsole) {
+        person = new Person();
         this.isConsole = isConsole;
     }
 
@@ -67,12 +67,12 @@ public class PersonBuilder {
     }
 
     private void buildHeight(Scannable scannable){
+        Long height = null;
         if(isConsole){
             try{
                 System.out.println("Введите рост:");
                 String heightString = scannable.scanString();
-                Long height;
-                if (Objects.equals(heightString, "")){
+                if (height.equals("")){
                     height = null;
                     person.setHeight(height);
                 }
@@ -86,8 +86,7 @@ public class PersonBuilder {
         }
         else {
             String heightString = scannable.scanString();
-            Long height;
-            if (Objects.equals(heightString, "")){
+            if (height.equals("")){
                 height = null;
                 person.setHeight(height);
             }
@@ -120,7 +119,7 @@ public class PersonBuilder {
         if(isConsole){
             try {
                 System.out.println("Выберете одну из предложенных национальностей");
-                System.out.println(Country.CHINA.getValues());
+                System.out.println(Country.getValues());
                 Country nationality = Country.valueOf(scannable.scanString());
                 person.setNationality(nationality);
             }

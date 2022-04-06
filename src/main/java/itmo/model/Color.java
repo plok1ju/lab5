@@ -1,7 +1,5 @@
 package itmo.model;
 
-import java.util.Arrays;
-
 public enum Color{
     BLUE("Blue"),
     YELLOW("Yellow"),
@@ -36,8 +34,13 @@ public enum Color{
         this.color = color;
     }
 
-    public String getValues() {
-        String countries = Arrays.toString(Color.values());
-        return countries.replace("[", "").replace("]", "");
+    public static String getValues() {
+        Color[] colorsArray = Color.values();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Color color : colorsArray){
+            stringBuilder.append(color).append(", ");
+        }
+        return stringBuilder.toString();
+
     }
 }

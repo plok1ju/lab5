@@ -6,7 +6,6 @@ import itmo.model.Dragon;
 import itmo.model.DragonCharacter;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class DragonBuilder {
 
@@ -75,7 +74,7 @@ public class DragonBuilder {
             try{
                 System.out.println("Введите описание дракона:");
                 String description = scannable.scanString();
-                if(Objects.equals(description, "")){
+                if(description.equals("")){
                     description = null;
                 }
                 dragon.setDescription(description);
@@ -89,7 +88,7 @@ public class DragonBuilder {
         }
         else{
             String description = scannable.scanString();
-            if(Objects.equals(description, "")){
+            if(description.equals("")){
                 description = null;
             }
             dragon.setDescription(description);
@@ -100,7 +99,7 @@ public class DragonBuilder {
         if(isConsole){
             try{
                 System.out.println("Выберете одно из предложенных значений цвета");
-                System.out.println(Color.ORANGE.getValues());
+                System.out.println(Color.getValues());
                 Color color = Color.valueOf(scannable.scanString());
                 dragon.setColor(color);
             }
@@ -119,7 +118,7 @@ public class DragonBuilder {
         if(isConsole){
             try{
                 System.out.println("Выберете одно из предложенных значений характера");
-                System.out.println(DragonCharacter.FICKLE.getValues());
+                System.out.println(DragonCharacter.getValues());
                 DragonCharacter character = DragonCharacter.valueOf(scannable.scanString());
                 dragon.setCharacter(character);
             }
