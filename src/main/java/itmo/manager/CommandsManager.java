@@ -43,7 +43,7 @@ public class CommandsManager {
             case "insert" :{
 
                 if(arrayLine.length < 2){
-                    throw new Exception();
+                    throw new Exception("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
                 break;
