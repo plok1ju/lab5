@@ -1,13 +1,17 @@
 package itmo;
 
 import itmo.model.Dragon;
-
+/**
+ * Этот класс хранит элемент дракон и ключ присвоенный дракону
+ */
 public class KeyDragonPair {
 
-    /**
-     * Описание полей класса
-     */
+    /** Поле значение ключа дракона */
     private Integer key;
+
+    /** Поле дракон
+     * {@link Dragon}
+     */
     private Dragon dragon;
 
     /**

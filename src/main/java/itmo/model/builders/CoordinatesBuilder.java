@@ -2,16 +2,25 @@ package itmo.model.builders;
 
 import itmo.io.Scannable;
 import itmo.model.Coordinates;
-
+/**
+ * Этот класс создает объект класса Coordinates
+ */
 public class CoordinatesBuilder {
 
+    /** Поле координаты дракона */
     private Coordinates coordinates;
+
+    /** Поле консоль */
     private boolean isConsole;
 
-
+    /**
+     * Конструктор класса CoordinatesBuilder
+     * @param isConsole - значение поля isConsole
+     */
     public CoordinatesBuilder(boolean isConsole) {
         this.isConsole = isConsole;
     }
+
 
     public Coordinates build(Scannable scannable) throws Exception {
         coordinates = new Coordinates();

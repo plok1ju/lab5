@@ -7,6 +7,9 @@ import itmo.model.Person;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Этот класс создает объект класса Person
+ */
 public class PersonBuilder {
 
     private Person person;

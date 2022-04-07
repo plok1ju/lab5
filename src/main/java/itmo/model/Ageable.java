@@ -1,5 +1,7 @@
 package itmo.model;
-
+/**
+ * Интерфейс объекта, который возвращает возраст
+ */
 public interface Ageable {
 
     /**

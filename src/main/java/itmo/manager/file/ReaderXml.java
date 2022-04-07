@@ -10,9 +10,16 @@ import itmo.model.Dragon;
 import java.io.File;
 import java.io.IOException;
 
-//этот класс отвечает за занесение данных из файла xml в коллекцию
+/**
+ * Этот класс считывает информацию из xml файла и вызывает deserializer
+ */
 public class ReaderXml {
 
+
+    /**
+     * Метод отвечает за создание коллекции по данным файла xml
+     * @return - коллекция
+     */
     public HashTableCollection<Integer, Dragon> returnCollect() throws IOException {
 
         XmlMapper xmlMapper = new XmlMapper(); // будет сам записывать дракона

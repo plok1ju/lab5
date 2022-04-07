@@ -2,13 +2,19 @@ package itmo.model;
 
 import java.util.Locale;
 
+/**
+ * Enum с наполнением возможного цвета дракона
+ */
 public enum Color{
     BLUE,
     YELLOW,
     ORANGE,
     WHITE;
 
-
+    /**
+     * Получение элементов enum
+     * @return - строка со значениями
+     */
     public static String getValues() {
         Color[] colorsArray = Color.values();
         StringBuilder stringBuilder = new StringBuilder();
