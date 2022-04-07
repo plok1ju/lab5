@@ -18,7 +18,7 @@ public class PersonBuilder {
         this.isConsole = isConsole;
     }
 
-    public Person build(Scannable scannable){
+    public Person build(Scannable scannable) throws Exception {
         this.buildName(scannable);
         this.buildBirthday(scannable);
         this.buildHeight(scannable);
@@ -28,7 +28,7 @@ public class PersonBuilder {
         return this.person;
     }
 
-    private void buildName(Scannable scannable){
+    private void buildName(Scannable scannable) throws Exception {
         if(isConsole){
             try{
                 System.out.println("Введите имя: ");
@@ -43,6 +43,9 @@ public class PersonBuilder {
         }
         else {
             String name = scannable.scanString();
+            if(name.equals("")){
+                throw new Exception(""); //TODO можно что то добавить а можно и нет
+            }
             person.setName(name);
 
         }

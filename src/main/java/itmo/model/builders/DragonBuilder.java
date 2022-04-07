@@ -6,6 +6,7 @@ import itmo.model.Dragon;
 import itmo.model.DragonCharacter;
 
 import java.util.Date;
+import java.util.Locale;
 
 public class DragonBuilder {
 
@@ -54,7 +55,14 @@ public class DragonBuilder {
         if(isConsole){
             try{
                 System.out.println("Введите возраст:");
-                Integer age = Integer.parseInt(scannable.scanString());
+                String ageString = scannable.scanString();
+                Integer age;
+                if (ageString.equals("")){
+                    age = null;
+                }
+                else {
+                    age = Integer.parseInt(ageString);
+                }
                 dragon.setAge(age);
             }
             catch (Exception e){
@@ -64,7 +72,14 @@ public class DragonBuilder {
             }
         }
         else {
-            Integer age = Integer.parseInt(scannable.scanString());
+            String ageString = scannable.scanString();
+            Integer age;
+            if (ageString.equals("")){
+                age = null;
+            }
+            else {
+                age = Integer.parseInt(ageString);
+            }
             dragon.setAge(age);
         }
     }
@@ -133,8 +148,6 @@ public class DragonBuilder {
         }
     }
 
-
-
     private void buildCoordinates(Scannable scannable) throws Exception {
         CoordinatesBuilder coordinatesBuilder = new CoordinatesBuilder(isConsole);
         dragon.setCoordinates(coordinatesBuilder.build(scannable));
@@ -147,9 +160,34 @@ public class DragonBuilder {
 
     }
 
-    private void buildPerson(Scannable scannable) {
-        PersonBuilder personBuilder = new PersonBuilder(isConsole);
-        dragon.setKiller(personBuilder.build(scannable));
+    private void buildPerson(Scannable scannable) throws Exception {
+        if(isConsole){
+            System.out.println("Задать значение убийцы дракона? Введите 'да' или 'нет'");
+            String answer = scannable.scanString().toUpperCase(Locale.ROOT);
+            if(answer.contains("ДА")){
+                PersonBuilder personBuilder = new PersonBuilder(isConsole);
+                dragon.setKiller(personBuilder.build(scannable));
+                return;
+            }
+            if (answer.contains("НЕТ")){
+                dragon.setKiller(null);
+                return;
+            }
+            this.buildPerson(scannable);
+
+        }
+        else {
+            try{
+                PersonBuilder personBuilder = new PersonBuilder(isConsole);
+                dragon.setKiller(personBuilder.build(scannable));
+            }
+            catch (Exception e){
+                dragon.setKiller(null);
+
+            }
+
+        }
+
     }
 
 
