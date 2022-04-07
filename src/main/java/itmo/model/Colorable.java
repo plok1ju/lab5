@@ -1,6 +1,6 @@
 package itmo.model;
 /**
- * Интерфейс дракона возвращает цвет
+ * Интерфейс объекта, который возвращает цвет
  */
 public interface Colorable {
 

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Этот класс парсит коллекцию
+ * Этот класс записывает коллекцию в файл
  */
 public class HashTableCollectSerializer {
 
     /** Поле ключ и дракон
-     * @see KeyDragonPair#KeyDragonPair(Integer, Dragon)
+     * {@link KeyDragonPair#KeyDragonPair(Integer, Dragon)}
      */
     private final KeyDragonPair[] keyDragonPairs;
 
