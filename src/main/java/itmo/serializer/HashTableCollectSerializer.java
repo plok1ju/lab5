@@ -15,7 +15,7 @@ import java.util.Collections;
 public class HashTableCollectSerializer {
 
     /** Поле ключ и дракон
-     * {@link KeyDragonPair#KeyDragonPair(Integer, Dragon)}
+     * {@link KeyDragonPair}
      */
     private final KeyDragonPair[] keyDragonPairs;
 

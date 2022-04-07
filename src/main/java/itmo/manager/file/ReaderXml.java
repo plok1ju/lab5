@@ -17,7 +17,7 @@ public class ReaderXml {
 
 
     /**
-     * Метод отвечает за создание коллекции по данным фойла xml
+     * Метод отвечает за создание коллекции по данным файла xml
      * @return - коллекция
      */
     public HashTableCollection<Integer, Dragon> returnCollect() throws IOException {
