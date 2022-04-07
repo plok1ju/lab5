@@ -9,12 +9,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Этот класс парсит коллекцию
+ */
 public class HashTableCollectSerializer {
 
-    /**
-     * Описание полей класса
+    /** Поле ключ и дракон
+     * @see KeyDragonPair#KeyDragonPair(Integer, Dragon)
      */
     private final KeyDragonPair[] keyDragonPairs;
+
+    /** Поле время создания коллекции */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private final LocalDateTime localDateTime;
 

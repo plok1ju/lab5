@@ -1,7 +1,9 @@
 package itmo.model;
 
 import java.util.Comparator;
-
+/**
+ * Класс отвечающий за сравнение двух драконов
+ */
 public class DragonComparator implements Comparator<Dragon> {
 
     /**

@@ -1,5 +1,7 @@
 package itmo.model;
-
+/**
+ * Enum с наполнением возможной национальности
+ */
 public enum Country{
     GERMANY("Germany"),
     CHINA("China"),
