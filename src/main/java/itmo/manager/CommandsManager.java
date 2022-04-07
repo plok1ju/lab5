@@ -104,9 +104,6 @@ public class CommandsManager {
 
             case "remove_lower" :{
 
-                if(arrayLine.length < 2){
-                    throw new Exception("Введены не все поля");
-                }
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
                 Dragon dragon = dragonBuilder.build(scannable);
                 return new RemoveLower(collection, dragon);
