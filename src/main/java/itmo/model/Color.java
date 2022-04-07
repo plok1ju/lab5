@@ -34,6 +34,10 @@ public enum Color{
         this.color = color;
     }
 
+    /**
+     * Получение элементов enum
+     * @return - строка со значениями
+     */
     public static String getValues() {
         Color[] colorsArray = Color.values();
         StringBuilder stringBuilder = new StringBuilder();

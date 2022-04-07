@@ -7,14 +7,20 @@ import java.time.LocalDateTime;
 
 public class Person {
 
-    /**
-     * Описание полей класса
-     */
+    /** Поле имя человека */
     private String name; //Поле не может быть null, Строка не может быть пустой
+
+    /** Поле дата рождения человека */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime birthday; //Поле не может быть null
+
+    /** Поле рост человека */
     private Long height; //Поле может быть null, Значение поля должно быть больше 0
+
+    /** Поле паспорт человека */
     private String passportID; //Значение этого поля должно быть уникальным, Строка не может быть пустой, Поле не может быть null
+
+    /** Поле национальность человека */
     private Country nationality; //Поле не может быть null
 
     /**

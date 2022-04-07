@@ -2,10 +2,10 @@ package itmo.model;
 
 public class Coordinates {
 
-    /**
-     * Описание полей класса
-     */
+    /** Поле значения координаты x */
     private Double x; //Поле не может быть null
+
+    /** Поле значения координаты y */
     private int y; //Значение поля должно быть больше -16
 
     /**

@@ -26,7 +26,10 @@ public enum DragonCharacter {
         return character;
     }
 
-
+    /**
+     * Получение элементов enum
+     * @return - строка со значениями
+     */
     public static String getValues() {
         DragonCharacter[] charactersArray = DragonCharacter.values();
         StringBuilder stringBuilder = new StringBuilder();
