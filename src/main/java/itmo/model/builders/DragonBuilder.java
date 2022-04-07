@@ -8,6 +8,9 @@ import itmo.model.DragonCharacter;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * Этот класс создает объект класса Dragon
+ */
 public class DragonBuilder {
 
     private Dragon dragon;
