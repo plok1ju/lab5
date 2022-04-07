@@ -71,12 +71,14 @@ public class PersonBuilder {
             try{
                 System.out.println("Введите рост:");
                 String heightString = scannable.scanString();
-                if (heightString.equals("")){
-                    Long height = null;
-                    person.setHeight(height);
+                Long height;
+                if (!heightString.equals("")) {
+                    height = Long.parseLong(heightString);
+                } else {
+                    height = null;
                 }
-                Long height = Long.parseLong(scannable.scanString());
                 person.setHeight(height);
+
             }
             catch (Exception e){
                 System.out.println("Что-то пошло не так: " + e.getMessage());
@@ -85,11 +87,12 @@ public class PersonBuilder {
         }
         else {
             String heightString = scannable.scanString();
-            if (heightString.equals("")){
-                Long height = null;
-                person.setHeight(height);
+            Long height;
+            if (!heightString.equals("")) {
+                height = Long.parseLong(heightString);
+            } else {
+                height = null;
             }
-            Long height = Long.parseLong(scannable.scanString());
             person.setHeight(height);
         }
     }
