@@ -7,6 +7,9 @@ import itmo.model.Dragon;
 
 import java.time.LocalDateTime;
 
+/**
+ * Этот класс
+ */
 public class HashTableCollectDeserializer {
 
     private KeyDragonPair[] keyDragonPairs;

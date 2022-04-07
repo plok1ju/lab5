@@ -11,6 +11,9 @@ import itmo.serializer.HashTableCollectSerializer;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Этот класс записывает коллекцию в файл
+ */
 public class FileSaver {
 
     public void saveInfo(HashTableCollection<Integer, Dragon> dragons) throws IOException {

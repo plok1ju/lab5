@@ -1,5 +1,7 @@
 package itmo.model;
-
+/**
+ * Класс координат дракона
+ */
 public class Coordinates {
 
     /** Поле значения координаты x */

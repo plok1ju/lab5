@@ -1,10 +1,11 @@
 package itmo.model;
 
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
-
+/**
+ * Класс человек
+ */
 public class Person {
 
     /** Поле имя человека */
@@ -52,6 +53,10 @@ public class Person {
         return passportID;
     }
 
+    /**
+     * Установка passportID
+     * @param passportID - значение поля passportID
+     */
     public void setPassportID(String passportID) {
         this.passportID = passportID;
     }

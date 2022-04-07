@@ -3,7 +3,9 @@ package itmo;
 import itmo.model.*;
 
 import java.util.Date;
-
+/**
+ * Этот класс хранит дракона и ключ присвоенный дракону
+ */
 public class KeyDragonPair {
 
     /** Поле значение ключа дракона */

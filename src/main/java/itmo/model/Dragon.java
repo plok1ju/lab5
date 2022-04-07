@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 import java.util.Objects;
-
+/**
+ * Класс дракон
+ */
 public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /** Поле id дракона */

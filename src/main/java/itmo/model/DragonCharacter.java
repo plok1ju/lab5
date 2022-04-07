@@ -1,5 +1,7 @@
 package itmo.model;
-
+/**
+ * Enum с наполнением возможных характеров драконов
+ */
 public enum DragonCharacter {
     WISE("Wise"),
     GOOD("Good"),

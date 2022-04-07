@@ -1,5 +1,7 @@
 package itmo.model;
-
+/**
+ * Enum с наполнением возможного цвета дракона
+ */
 public enum Color{
     BLUE("Blue"),
     YELLOW("Yellow"),
