@@ -25,4 +25,15 @@ public enum DragonCharacter {
     public String getCharacter() {
         return character;
     }
+
+
+    public static String getValues() {
+        DragonCharacter[] charactersArray = DragonCharacter.values();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(DragonCharacter character : charactersArray){
+            stringBuilder.append(character).append(", ");
+        }
+        return stringBuilder.toString();
+
+    }
 }

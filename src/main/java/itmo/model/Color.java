@@ -1,6 +1,6 @@
 package itmo.model;
 
-public enum Color {
+public enum Color{
     BLUE("Blue"),
     YELLOW("Yellow"),
     ORANGE("Orange"),
@@ -34,4 +34,13 @@ public enum Color {
         this.color = color;
     }
 
+    public static String getValues() {
+        Color[] colorsArray = Color.values();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Color color : colorsArray){
+            stringBuilder.append(color).append(", ");
+        }
+        return stringBuilder.toString();
+
+    }
 }

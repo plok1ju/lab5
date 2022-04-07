@@ -1,6 +1,6 @@
 package itmo.model;
 
-public enum Country {
+public enum Country{
     GERMANY("Germany"),
     CHINA("China"),
     ITALY("Italy");
@@ -24,6 +24,16 @@ public enum Country {
      */
     public String getCountry(){
         return country;
+    }
+
+    public static String getValues() {
+        Country[] countriesArray = Country.values();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Country country : countriesArray){
+            stringBuilder.append(country).append(", ");
+        }
+        return stringBuilder.toString();
+
     }
 
 

@@ -23,7 +23,7 @@ public class CoordinatesBuilder {
     private void buildX(Scannable scannable) throws Exception {
         if(isConsole){
             try {
-                System.out.println("Введите координату х");
+                System.out.println("Введите координату х: ");
                 Double x = Double.parseDouble(scannable.scanString());
                 coordinates.setX(x);
             }
@@ -42,7 +42,7 @@ public class CoordinatesBuilder {
     private void buildY(Scannable scannable) throws Exception {
         if(isConsole){
             try {
-                System.out.println("Введите координату y");
+                System.out.println("Введите координату y: ");
                 int y = Integer.parseInt(scannable.scanString());
                 coordinates.setY(y);
             }

@@ -30,6 +30,7 @@ public class TestMain {
         System.out.println(collection);
         System.out.println("555");
 
+       Color.ORANGE.getValues();
 
     }
 }
