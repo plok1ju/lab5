@@ -4,7 +4,7 @@ import itmo.model.*;
 
 import java.util.Date;
 /**
- * Этот класс хранит дракона и ключ присвоенный дракону
+ * Этот класс хранит элемент дракон и ключ присвоенный дракону
  */
 public class KeyDragonPair {
 
@@ -12,7 +12,7 @@ public class KeyDragonPair {
     private Integer key;
 
     /** Поле дракон
-     * @see Dragon#Dragon(Long, String, Coordinates, Date, Integer, String, Color, DragonCharacter, Person)
+     * {@link Dragon#Dragon(Long, String, Coordinates, Date, Integer, String, Color, DragonCharacter, Person)}
      */
     private Dragon dragon;
 

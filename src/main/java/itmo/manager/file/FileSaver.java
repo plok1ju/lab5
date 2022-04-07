@@ -16,6 +16,7 @@ import java.io.IOException;
  */
 public class FileSaver {
 
+
     public void saveInfo(HashTableCollection<Integer, Dragon> dragons) throws IOException {
 
         HashTableCollectSerializer serializer = new HashTableCollectSerializer(dragons);
