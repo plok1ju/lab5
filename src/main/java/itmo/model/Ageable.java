@@ -1,5 +1,7 @@
 package itmo.model;
-
+/**
+ * Интерфейс дракона возвращает возраст
+ */
 public interface Ageable {
 
     /**

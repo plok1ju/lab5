@@ -26,6 +26,10 @@ public enum Country{
         return country;
     }
 
+    /**
+     * Получение элементов enum
+     * @return - строка со значениями
+     */
     public static String getValues() {
         Country[] countriesArray = Country.values();
         StringBuilder stringBuilder = new StringBuilder();

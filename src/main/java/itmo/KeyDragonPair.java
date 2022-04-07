@@ -1,13 +1,17 @@
 package itmo;
 
-import itmo.model.Dragon;
+import itmo.model.*;
+
+import java.util.Date;
 
 public class KeyDragonPair {
 
-    /**
-     * Описание полей класса
-     */
+    /** Поле значение ключа дракона */
     private Integer key;
+
+    /** Поле дракон
+     * @see Dragon#Dragon(Long, String, Coordinates, Date, Integer, String, Color, DragonCharacter, Person)
+     */
     private Dragon dragon;
 
     /**

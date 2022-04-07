@@ -7,20 +7,34 @@ import java.util.Objects;
 
 public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
-    /**
-     * Описание полей класса
-     */
+    /** Поле id дракона */
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть
     // уникальным, Значение этого поля должно генерироваться автоматически
+
+    /** Поле имя дракона */
     private String name; //Поле не может быть null, Строка не может быть пустой
+
+    /** Поле координаты дракона */
     private Coordinates coordinates; //Поле не может быть null
+
+    /** Поле дата создания дракона */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date creationDate; //Поле не может быть null, Значение этого поля должно
     // генерироваться автоматически
+
+    /** Поле возраст дракона */
     private Integer age; //Значение поля должно быть больше 0, Поле может быть null
+
+    /** Поле описание дракона */
     private String description; //Поле может быть null
+
+    /** Поле цвет дракона */
     private Color color; //Поле не может быть null
+
+    /** Поле характер дракона */
     private DragonCharacter character; //Поле не может быть null
+
+    /** Поле убийца дракона */
     private Person killer; //Поле может быть null
 
     /**
