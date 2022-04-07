@@ -26,10 +26,12 @@ public class Main {
 
     private static void getCommand(CommandsManager commandsManager, Scannable scannable){
         try{
+            System.out.println("Введите команду: ");
             Command command = commandsManager.getCommand(scannable.scanString(), scannable,true);
+            command.execute();
 
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         getCommand(commandsManager, scannable);
     }

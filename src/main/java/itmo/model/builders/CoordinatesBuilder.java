@@ -14,6 +14,7 @@ public class CoordinatesBuilder {
     }
 
     public Coordinates build(Scannable scannable) throws Exception {
+        coordinates = new Coordinates();
         this.buildX(scannable);
         this.buildY(scannable);
         return coordinates;

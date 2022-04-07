@@ -1,38 +1,13 @@
 package itmo.model;
 
+import java.util.Locale;
+
 public enum Color{
-    BLUE("Blue"),
-    YELLOW("Yellow"),
-    ORANGE("Orange"),
-    WHITE("White");
+    BLUE,
+    YELLOW,
+    ORANGE,
+    WHITE;
 
-    /**
-     * Поле класса
-     */
-    private String color;
-
-    /**
-     * Конструктор цвета
-     * @param color - значение поля color
-     */
-    Color(String color) {
-        this.color = color;
-    }
-
-    /**
-     * Получение цвета
-     * @return - цвет дракона
-     */
-    public String getColor() {
-        return color;
-    }
-
-    /**
-     * Установка цвета
-     */
-    public void setColor() {
-        this.color = color;
-    }
 
     public static String getValues() {
         Color[] colorsArray = Color.values();
@@ -42,5 +17,13 @@ public enum Color{
         }
         return stringBuilder.toString();
 
+    }
+
+    public static Color parse(String stringColor) throws Exception {
+        try {
+            return valueOf(stringColor.toUpperCase(Locale.ROOT).trim());
+        } catch (Exception e){
+            throw new Exception("В " + Color.class.getSimpleName() + " нет константы " + stringColor + " :(");
+        }
     }
 }

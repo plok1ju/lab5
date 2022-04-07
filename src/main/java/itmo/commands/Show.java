@@ -16,7 +16,11 @@ public class Show implements Command{
     @Override
     public void execute() {
         List<?> keys = collection.getKeysAsList();
-        keys.forEach(key -> System.out.println("Ключ элемента: " + key + " " + collection.get(key).toString()));
+        keys.forEach(key -> {
+            System.out.println("=====");
+            System.out.println("Ключ элемента: " + key + " " + collection.get(key).toString());
+            System.out.println("=====");
+        });
 
 
     }

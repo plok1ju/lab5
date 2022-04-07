@@ -23,7 +23,12 @@ public class HashTableCollectDeserializer {
         HashTableCollection<Integer, Dragon> collection = new HashTableCollection<>();
 
         for(KeyDragonPair pair : keyDragonPairs){
-            collection.put(pair.getKey(), pair.getDragon());
+            Dragon dragon = pair.getDragon();
+            if (dragon.getKiller().getName() == null)
+                dragon.setKiller(null);
+            if (dragon.getDescription().equals(""))
+                dragon.setDescription(null);
+            collection.put(pair.getKey(), dragon);
         }
         collection.setDateTime(localDateTime);
         return collection;

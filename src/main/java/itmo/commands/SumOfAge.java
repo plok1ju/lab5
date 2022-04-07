@@ -19,7 +19,7 @@ public class SumOfAge implements Command{
     @Override
     public void execute(){
         List<?> keys = collection.getKeysAsList();
-        keys.forEach(key -> sumAge += collection.get(key).getAge());
+        keys.forEach(key -> sumAge += (collection.get(key).getAge() == null ? 0 : collection.get(key).getAge()));
         System.out.println("Сумма возрастов: " + sumAge);
 
     }

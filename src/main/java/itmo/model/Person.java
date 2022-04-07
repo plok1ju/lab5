@@ -120,14 +120,11 @@ public class Person {
      */
     @Override
     public String toString() {
-        final String s = "Person{" +
-                "name='" + name + '\'' +
-                ", birthday=" + birthday +
-                ", height=" + height +
-                ", passportID='" + passportID + '\'' +
-                ", nationality=" + nationality.getCountry() +
-                '}';
-        return s;
+        return "name: " + name + "\n" +
+        "birthday: " + birthday + "\n" +
+        "height: " + height + "\n" +
+        "passportID: " + passportID + "\n" +
+        "nationality: " + nationality;
     }
 
 }

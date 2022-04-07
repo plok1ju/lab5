@@ -46,7 +46,8 @@ public class CommandsManager {
                     throw new Exception("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
-                return new Insert(collection, key);
+                Dragon dragon = new DragonBuilder(isConsole).build(scannable);
+                return new Insert(collection, key, dragon);
             }
 
             case "exit" :{
@@ -70,7 +71,7 @@ public class CommandsManager {
                 if(arrayLine.length < 2){
                     throw new Exception("Введены не все поля");
                 }
-                Color color = Color.valueOf(arrayLine[1]);
+                Color color = Color.parse(arrayLine[1]);
                 return new RemoveAllByColor(collection, color);
             }
 
@@ -130,6 +131,9 @@ public class CommandsManager {
                 return new UpdateId(collection,id, dragon);
 
             }
+            default:{
+                throw new Exception("Такой команды нет :(");
+            }
 
 //            case "execute_script" :{
 //
@@ -137,7 +141,6 @@ public class CommandsManager {
 //            }
 
         }
-        return null;
 
     }
 //    public void run(CollectInfo collectInfo, File file) {

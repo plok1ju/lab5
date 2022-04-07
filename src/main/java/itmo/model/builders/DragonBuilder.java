@@ -110,12 +110,12 @@ public class DragonBuilder {
         }
     }
 
-    private void buildColor(Scannable scannable){
+    private void buildColor(Scannable scannable) throws Exception {
         if(isConsole){
             try{
                 System.out.println("Выберете одно из предложенных значений цвета");
                 System.out.println(Color.getValues());
-                Color color = Color.valueOf(scannable.scanString());
+                Color color = Color.parse(scannable.scanString());
                 dragon.setColor(color);
             }
             catch (Exception e){
@@ -124,7 +124,7 @@ public class DragonBuilder {
             }
         }
         else {
-            Color color = Color.valueOf(scannable.scanString());
+            Color color = Color.parse(scannable.scanString());
             dragon.setColor(color);
         }
     }
@@ -134,7 +134,7 @@ public class DragonBuilder {
             try{
                 System.out.println("Выберете одно из предложенных значений характера");
                 System.out.println(DragonCharacter.getValues());
-                DragonCharacter character = DragonCharacter.valueOf(scannable.scanString());
+                DragonCharacter character = DragonCharacter.parse(scannable.scanString());
                 dragon.setCharacter(character);
             }
             catch (Exception e){
@@ -143,7 +143,7 @@ public class DragonBuilder {
             }
         }
         else {
-            DragonCharacter character = DragonCharacter.valueOf(scannable.scanString());
+            DragonCharacter character = DragonCharacter.parse(scannable.scanString());
             dragon.setCharacter(character);
         }
     }
@@ -183,11 +183,8 @@ public class DragonBuilder {
             }
             catch (Exception e){
                 dragon.setKiller(null);
-
             }
-
         }
-
     }
 
 

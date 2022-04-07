@@ -1,31 +1,11 @@
 package itmo.model;
 
+import java.util.Locale;
+
 public enum DragonCharacter {
-    WISE("Wise"),
-    GOOD("Good"),
-    FICKLE("Fickle");
-
-    /**
-     * Поле класса
-     */
-    private final String character;
-
-    /**
-     * Конструктор характера
-     * @param character - значение поля character
-     */
-    DragonCharacter(String character) {
-        this.character = character;
-    }
-
-    /**
-     * Получение характера
-     * @return - характер дракона
-     */
-    public String getCharacter() {
-        return character;
-    }
-
+    WISE,
+    GOOD,
+    FICKLE;
 
     public static String getValues() {
         DragonCharacter[] charactersArray = DragonCharacter.values();
@@ -35,5 +15,9 @@ public enum DragonCharacter {
         }
         return stringBuilder.toString();
 
+    }
+
+    public static DragonCharacter parse(String characterString){
+        return valueOf(characterString.toUpperCase(Locale.ROOT).trim());
     }
 }

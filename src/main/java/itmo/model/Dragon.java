@@ -1,6 +1,7 @@
 package itmo.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 import java.util.Objects;
@@ -212,19 +213,15 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
      */
     @Override
     public String toString() {
-        final String s = "Dragon{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", coordinates=" + "(" + coordinates.getX() +
-                ", " + coordinates.getY() + ")" +
-                ", creationDate=" + creationDate +
-                ", age=" + age +
-                ", description='" + description + '\'' +
-                ", color=" + color.getColor() +
-                ", character=" + character.getCharacter() +
-                ", killer=" + killer.toString() + '}';
-        return s;
-
+        return "id: " + id + "\n" +
+                "name: " + name + "\n" +
+                "coordinates: " + coordinates.toString() + "\n" +
+                "creationDate: " + creationDate + "\n" +
+                "age: " + age + "\n" +
+                "description: " + description + "\n" +
+                "color: " + color + "\n" +
+                "character: " + character + "\n" +
+                "killer: \n" + killer;
     }
 
     /**

@@ -10,11 +10,12 @@ public class Insert implements Command{
 
     private final HashTableCollection<Integer, Dragon> collection;
     private final Integer key;
-    private Dragon dragon;
+    private final Dragon dragon;
 
-    public Insert(HashTableCollection<Integer, Dragon> collection, Integer key) {
+    public Insert(HashTableCollection<Integer, Dragon> collection, Integer key, Dragon dragon) {
         this.collection = collection;
         this.key = key;
+        this.dragon = dragon;
     }
 
     @Override

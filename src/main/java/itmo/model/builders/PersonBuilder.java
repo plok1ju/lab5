@@ -125,7 +125,7 @@ public class PersonBuilder {
             try {
                 System.out.println("Выберете одну из предложенных национальностей");
                 System.out.println(Country.getValues());
-                Country nationality = Country.valueOf(scannable.scanString());
+                Country nationality = Country.parse(scannable.scanString());
                 person.setNationality(nationality);
             }
             catch (Exception e){
@@ -134,7 +134,7 @@ public class PersonBuilder {
             }
         }
         else {
-            Country nationality = Country.valueOf(scannable.scanString());
+            Country nationality = Country.parse(scannable.scanString());
             person.setNationality(nationality);
         }
     }
