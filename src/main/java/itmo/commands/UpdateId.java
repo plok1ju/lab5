@@ -4,6 +4,7 @@ import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class UpdateId implements Command {
@@ -24,9 +25,14 @@ public class UpdateId implements Command {
         List<Integer> keys = collection.getKeysAsList();
         dragon.setId(this.id);
         Stream<Integer> integerStream = keys.stream().filter(key -> id.equals(collection.get(key).getId()));
-        Integer key = integerStream.findAny().get();
-        integerStream.forEach(collection::remove);
-        collection.put(key, dragon);
+        Optional<Integer> optionalKey = integerStream.findAny();
+        if (!optionalKey.isPresent()){
+            throw new Exception("Нет такого id");
+        }
+        Integer dragonKey = optionalKey.get();
+        keys.stream().filter(key -> id.equals(collection.get(key).getId())).forEach(collection::remove);
+
+        collection.put(dragonKey, dragon);
 
     }
 }
