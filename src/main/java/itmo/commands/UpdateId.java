@@ -29,9 +29,10 @@ public class UpdateId implements Command {
         if (!optionalKey.isPresent()){
             throw new Exception("Нет такого id");
         }
-        Integer key = optionalKey.get();
-        integerStream.forEach(collection::remove);
-        collection.put(key, dragon);
+        Integer dragonKey = optionalKey.get();
+        keys.stream().filter(key -> id.equals(collection.get(key).getId())).forEach(collection::remove);
+
+        collection.put(dragonKey, dragon);
 
     }
 }
