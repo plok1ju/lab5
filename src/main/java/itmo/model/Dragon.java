@@ -196,10 +196,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      * @param age - значение поля age
      */
     public void setAge(Integer age) throws Exception {
-        if (age == null){
-
-        }
-        else if (age <= 0) {
+        if (age != null && age <= 0) {
             throw new Exception("Поле age должно быть больше нуля!");
         }
         this.age = age;
