@@ -12,8 +12,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class PersonBuilder {
 
-    private Person person;
-    private boolean isConsole;
+    private final Person person;
+    private final boolean isConsole;
 
 
     public PersonBuilder(boolean isConsole) {
@@ -32,50 +32,46 @@ public class PersonBuilder {
     }
 
     private void buildName(Scannable scannable) throws Exception {
-        if(isConsole){
-            try{
-                System.out.println("Введите имя: ");
+        if (isConsole) {
+            try {
+                System.out.println("Введите имя человека: ");
                 String nameKiller = scannable.scanString();
                 person.setName(nameKiller);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildName(scannable);
             }
 
-        }
-        else {
+        } else {
             String name = scannable.scanString();
-            if(name.equals("")){
-                throw new Exception(""); //TODO можно что то добавить а можно и нет
+            if (name.equals("")) {
+                throw new Exception("Что-то"); //TODO можно что то добавить а можно и нет
             }
             person.setName(name);
 
         }
     }
 
-    private void buildBirthday(Scannable scannable){
-        if(isConsole){
-            try{
-                System.out.println("Введите дату в формате yyyy-MM-dd HH:mm: ");
+    private void buildBirthday(Scannable scannable) throws Exception {
+        if (isConsole) {
+            try {
+                System.out.println("Введите дату рождения в формате yyyy-MM-dd HH:mm: ");
                 LocalDateTime birthday = LocalDateTime.parse(scannable.scanString(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                 person.setBirthday(birthday);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildBirthday(scannable);
             }
-        }
-        else {
+        } else {
             LocalDateTime birthday = LocalDateTime.parse(scannable.scanString(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             person.setBirthday(birthday);
         }
     }
 
-    private void buildHeight(Scannable scannable){
-        if(isConsole){
-            try{
-                System.out.println("Введите рост:");
+    private void buildHeight(Scannable scannable) throws Exception {
+        if (isConsole) {
+            try {
+                System.out.println("Введите рост человека:");
                 String heightString = scannable.scanString();
                 Long height;
                 if (!heightString.equals("")) {
@@ -85,13 +81,11 @@ public class PersonBuilder {
                 }
                 person.setHeight(height);
 
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildHeight(scannable);
             }
-        }
-        else {
+        } else {
             String heightString = scannable.scanString();
             Long height;
             if (!heightString.equals("")) {
@@ -103,40 +97,36 @@ public class PersonBuilder {
         }
     }
 
-    private void buildPassportID(Scannable scannable){
-        if(isConsole){
-            try{
+    private void buildPassportID(Scannable scannable) throws Exception {
+        if (isConsole) {
+            try {
                 System.out.println("Введите ID паспорта: ");
                 String passportId = scannable.scanString();
                 person.setPassportID(passportId);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildPassportID(scannable);
             }
 
-        }
-        else {
+        } else {
             String passportId = scannable.scanString();
             person.setPassportID(passportId);
 
         }
     }
 
-    private void buildNationality(Scannable scannable){
-        if(isConsole){
+    private void buildNationality(Scannable scannable) throws Exception {
+        if (isConsole) {
             try {
                 System.out.println("Выберете одну из предложенных национальностей");
                 System.out.println(Country.getValues());
                 Country nationality = Country.parse(scannable.scanString());
                 person.setNationality(nationality);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildNationality(scannable);
             }
-        }
-        else {
+        } else {
             Country nationality = Country.parse(scannable.scanString());
             person.setNationality(nationality);
         }

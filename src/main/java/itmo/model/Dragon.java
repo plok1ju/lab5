@@ -1,78 +1,99 @@
 package itmo.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 import java.util.Objects;
+
 /**
  * Класс дракон
  */
-public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
+public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
 
-    /** Поле id дракона */
+    /**
+     * Поле id дракона
+     */
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть
     // уникальным, Значение этого поля должно генерироваться автоматически
 
-    /** Поле имя дракона */
+    /**
+     * Поле имя дракона
+     */
     private String name; //Поле не может быть null, Строка не может быть пустой
 
-    /** Поле координаты дракона */
+    /**
+     * Поле координаты дракона
+     */
     private Coordinates coordinates; //Поле не может быть null
 
-    /** Поле дата создания дракона */
+    /**
+     * Поле дата создания дракона
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date creationDate; //Поле не может быть null, Значение этого поля должно
     // генерироваться автоматически
 
-    /** Поле возраст дракона */
+    /**
+     * Поле возраст дракона
+     */
     private Integer age; //Значение поля должно быть больше 0, Поле может быть null
 
-    /** Поле описание дракона */
+    /**
+     * Поле описание дракона
+     */
     private String description; //Поле может быть null
 
-    /** Поле цвет дракона */
+    /**
+     * Поле цвет дракона
+     */
     private Color color; //Поле не может быть null
 
-    /** Поле характер дракона */
+    /**
+     * Поле характер дракона
+     */
     private DragonCharacter character; //Поле не может быть null
 
-    /** Поле убийца дракона */
+    /**
+     * Поле убийца дракона
+     */
     private Person killer; //Поле может быть null
 
     /**
      * Пустой конструктор класса Dragon
-    */
-    public Dragon(){}
+     */
+    public Dragon() {
+    }
 
     /**
      * Конструктор класса Dragon
-     * @param id - значение поля id
-     * @param name - значение поля name
-     * @param coordinates - значение поля coordinates
+     *
+     * @param id           - значение поля id
+     * @param name         - значение поля name
+     * @param coordinates  - значение поля coordinates
      * @param creationDate - значение поля creationDate
-     * @param age - значение поля age
-     * @param description - значение поля description
-     * @param color - значение поля color
-     * @param character - значение поля character
-     * @param killer - значение поля killer
+     * @param age          - значение поля age
+     * @param description  - значение поля description
+     * @param color        - значение поля color
+     * @param character    - значение поля character
+     * @param killer       - значение поля killer
      */
     public Dragon(Long id, String name, Coordinates coordinates, Date creationDate, Integer age,
-                  String description, Color color, DragonCharacter character, Person killer) {
-        this.id = id;
-        this.name = name;
-        this.coordinates = coordinates;
-        this.creationDate = creationDate;
-        this.age = age;
-        this.description = description;
-        this.color = color;
-        this.character = character;
-        this.killer = killer;
+                  String description, Color color, DragonCharacter character, Person killer) throws Exception {
+        setId(id);
+        setName(name);
+        setCoordinates(coordinates);
+        setCreationDate(creationDate);
+        setAge(age);
+        setDescription(description);
+        setColor(color);
+        setCharacter(character);
+        setKiller(killer);
 
     }
 
     /**
      * Получение id
+     *
      * @return - значение поля id
      */
     public Long getId() {
@@ -81,15 +102,22 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Установка id
+     *
      * @param id - значение поля id
      */
-    public void setId(Long id) {
+    public void setId(Long id) throws Exception {
+        if (id == null) {
+            throw new Exception("Поле id не может быть null!");
+        } else if (id <= 0) {
+            throw new Exception("Поле id должно быть больше 0!");
+        }//TODO проверка уникальный ли ключ добавляется? сделать через получение ключей которые уже в коллекции мб?
 
         this.id = id;
     }
 
     /**
      * Получение имени
+     *
      * @return - значение поля name
      */
     public String getName() {
@@ -98,6 +126,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Установка нового имени
+     *
      * @param name - значение поля name
      */
     public void setName(String name) throws Exception {
@@ -111,6 +140,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Получение координат
+     *
      * @return - значение поля coordinates
      */
     public Coordinates getCoordinates() {
@@ -119,14 +149,19 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Установка новых координат
-     * @param coordinates  - значение поля coordinates
+     *
+     * @param coordinates - значение поля coordinates
      */
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(Coordinates coordinates) throws Exception {
+        if (coordinates == null) {
+            throw new Exception("Поле coordinates не может быть null!");
+        }
         this.coordinates = coordinates;
     }
 
     /**
      * Получение даты
+     *
      * @return - значение поля creationDate
      */
     public Date getCreationDate() {
@@ -135,14 +170,19 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Добавление новой даты создания
-     * @param creationDate  - значение поля creationDate
+     *
+     * @param creationDate - значение поля creationDate
      */
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(Date creationDate) throws Exception {
+        if (creationDate == null) {
+            throw new Exception("Поле name не может быть null!");
+        }
         this.creationDate = creationDate;
     }
 
     /**
      * Переопределение метода getAge
+     *
      * @return - значение поля age
      */
     @Override
@@ -152,14 +192,19 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Добавление нового возраста дракона
-     * @param age  - значение поля age
+     *
+     * @param age - значение поля age
      */
-    public void setAge(Integer age) {
+    public void setAge(Integer age) throws Exception {
+        if (age <= 0) {
+            throw new Exception("Поле age должно быть больше нуля!");
+        }
         this.age = age;
     }
 
     /**
      * Получение описания дракона
+     *
      * @return - значение поля description
      */
     public String getDescription() {
@@ -168,7 +213,8 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Добавление нового описания дракона
-     * @param description  - значение поля description
+     *
+     * @param description - значение поля description
      */
     public void setDescription(String description) {
         this.description = description;
@@ -176,6 +222,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Переопределение метода getColor
+     *
      * @return - значение поля color
      */
     @Override
@@ -185,14 +232,19 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Добавление нового цвета дракона
-     * @param color  - значение поля color
+     *
+     * @param color - значение поля color
      */
-    public void setColor(Color color) {
+    public void setColor(Color color) throws Exception {
+        if (color == null) {
+            throw new Exception("Поле color не может быть null!");
+        }
         this.color = color;
     }
 
     /**
      * Получение характера
+     *
      * @return - значение поля character
      */
     public DragonCharacter getCharacter() {
@@ -201,14 +253,19 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Добавление нового характера дракона
-     * @param character  - значение поля character
+     *
+     * @param character - значение поля character
      */
-    public void setCharacter(DragonCharacter character) {
+    public void setCharacter(DragonCharacter character) throws Exception {
+        if (character == null) {
+            throw new Exception("Поле character не может быть null!");
+        }
         this.character = character;
     }
 
     /**
      * Получение убийцы дракона
+     *
      * @return - значение поля killer
      */
     public Person getKiller() {
@@ -217,7 +274,8 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Добавление нового убийцы
-     * @param killer  - значение поля killer
+     *
+     * @param killer - значение поля killer
      */
     public void setKiller(Person killer) {
         this.killer = killer;
@@ -225,6 +283,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Переопределение метода toString
+     *
      * @return - значения всех полей класса Dragon
      */
     @Override
@@ -242,6 +301,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Переопределение метода equals
+     *
      * @return - одинаковые объекты или нет
      */
     @Override
@@ -254,6 +314,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Переопределение метода equals
+     *
      * @return - число типа int
      */
     @Override
@@ -263,6 +324,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon>{
 
     /**
      * Переопределение метода equals
+     *
      * @return - одинаковые ли два дракона или нет
      */
     @Override

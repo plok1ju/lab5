@@ -2,7 +2,7 @@ package itmo.commands;
 
 import itmo.collection.HashTableCollection;
 
-public class Clear implements Command{
+public class Clear implements Command {
 
     private final HashTableCollection<?, ?> collection; // ? - все равно какой тип
 
@@ -11,7 +11,7 @@ public class Clear implements Command{
     }
 
     @Override
-    public void execute(){
+    public void execute() {
         collection.clear();
         System.out.println("Коллекция очищена");
 

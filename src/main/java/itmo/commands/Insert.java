@@ -6,7 +6,7 @@ import itmo.model.Dragon;
 import java.io.IOException;
 
 //добавить новый элемент с заданным ключом
-public class Insert implements Command{
+public class Insert implements Command {
 
     private final HashTableCollection<Integer, Dragon> collection;
     private final Integer key;

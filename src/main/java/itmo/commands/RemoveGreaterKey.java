@@ -4,7 +4,7 @@ import itmo.collection.HashTableCollection;
 
 import java.util.List;
 
-public class RemoveGreaterKey implements Command{
+public class RemoveGreaterKey implements Command {
 
     private final HashTableCollection<? extends Integer, ?> collection;
     private final Integer key;

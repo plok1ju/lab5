@@ -18,31 +18,31 @@ public class CommandsManager {
 
     public Command getCommand(String commandLine, Scannable scannable, boolean isConsole) throws Exception {
         String[] arrayLine = commandLine.split(" ");
-        if(arrayLine.length == 0){
+        if (arrayLine.length == 0) {
             throw new Exception("Нет команд");
 
         }
         String command = arrayLine[0];
-        switch (command){
-            case "clear" :{
+        switch (command) {
+            case "clear": {
 
                 return new Clear(collection);
             }
 
-            case "show" :{
+            case "show": {
 
                 return new Show(collection);
             }
 
-            case "info" :{
+            case "info": {
 
                 return new Info(collection);
 
             }
 
-            case "insert" :{
+            case "insert": {
 
-                if(arrayLine.length < 2){
+                if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
@@ -50,88 +50,88 @@ public class CommandsManager {
                 return new Insert(collection, key, dragon);
             }
 
-            case "exit" :{
+            case "exit": {
 
                 return new Exit();
 
             }
 
-            case "help" :{
+            case "help": {
 
                 return new Help();
             }
 
-            case "print_descending" :{
+            case "print_descending": {
 
                 return new PrintDescending(collection);
             }
 
-            case "remove_all_by_color" :{
+            case "remove_all_by_color": {
 
-                if(arrayLine.length < 2){
+                if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
                 Color color = Color.parse(arrayLine[1]);
                 return new RemoveAllByColor(collection, color);
             }
 
-            case "remove_greater_key" :{
+            case "remove_greater_key": {
 
-                if(arrayLine.length < 2){
+                if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
                 return new RemoveGreaterKey(collection, key);
             }
 
-            case "remove_key" :{
+            case "remove_key": {
 
-                if(arrayLine.length < 2){
+                if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
                 return new RemoveKey(collection, key);
             }
 
-            case "save" :{
+            case "save": {
 
                 return new Save(collection);
             }
 
-            case "sum_of_age" :{
+            case "sum_of_age": {
                 return new SumOfAge(collection);
             }
 
 
-            case "remove_lower" :{
+            case "remove_lower": {
 
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
                 Dragon dragon = dragonBuilder.build(scannable);
                 return new RemoveLower(collection, dragon);
             }
 
-            case "replace_if_lower" :{
+            case "replace_if_lower": {
 
-                if(arrayLine.length < 2){
+                if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
                 Dragon dragon = dragonBuilder.build(scannable);
                 Integer key = Integer.parseInt(arrayLine[1]);
-                return new ReplaceIfLowe(collection,key, dragon);
+                return new ReplaceIfLowe(collection, key, dragon);
             }
 
-            case "update_id" :{
-                if(arrayLine.length < 2){
+            case "update_id": {
+                if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
                 Dragon dragon = dragonBuilder.build(scannable);
                 Long id = Long.parseLong(arrayLine[1]);
-                return new UpdateId(collection,id, dragon);
+                return new UpdateId(collection, id, dragon);
 
             }
-            default:{
+            default: {
                 throw new Exception("Такой команды нет :(");
             }
 

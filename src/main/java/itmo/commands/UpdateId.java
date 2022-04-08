@@ -6,11 +6,11 @@ import itmo.model.Dragon;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class UpdateId implements Command{
+public class UpdateId implements Command {
 
-    private HashTableCollection<Integer, Dragon> collection;
-    private Long id;
-    private Dragon dragon;
+    private final HashTableCollection<Integer, Dragon> collection;
+    private final Long id;
+    private final Dragon dragon;
 
     public UpdateId(HashTableCollection<Integer, Dragon> collection, Long id, Dragon dragon) {
         this.collection = collection;
@@ -20,7 +20,7 @@ public class UpdateId implements Command{
 
 
     @Override
-    public void execute(){
+    public void execute() throws Exception {
         List<Integer> keys = collection.getKeysAsList();
         dragon.setId(this.id);
         Stream<Integer> integerStream = keys.stream().filter(key -> id.equals(collection.get(key).getId()));

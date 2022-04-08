@@ -10,12 +10,12 @@ import itmo.model.Dragon;
 
 public class Main {
     private static HashTableCollection<Integer, Dragon> collection = new HashTableCollection<>();
+
     public static void main(String[] args) throws Exception {
         ReaderXml readerXml = new ReaderXml();
-        try{
+        try {
             collection = readerXml.returnCollect();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
 
         }
         Scannable scannable = new ConsoleScan();
@@ -24,10 +24,10 @@ public class Main {
 
     }
 
-    private static void getCommand(CommandsManager commandsManager, Scannable scannable){
-        try{
+    private static void getCommand(CommandsManager commandsManager, Scannable scannable) {
+        try {
             System.out.println("Введите команду: ");
-            Command command = commandsManager.getCommand(scannable.scanString(), scannable,true);
+            Command command = commandsManager.getCommand(scannable.scanString(), scannable, true);
             command.execute();
 
         } catch (Exception e) {

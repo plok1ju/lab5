@@ -5,12 +5,11 @@ import itmo.manager.file.FileSaver;
 import itmo.manager.file.ReaderXml;
 import itmo.model.*;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 public class TestMain {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
         Date date = new Date();
         Person person = new Person("Tom", LocalDateTime.now(), 10L, "12h3", Country.ITALY);
@@ -30,7 +29,7 @@ public class TestMain {
         System.out.println(collection);
         System.out.println("555");
 
-       Color.ORANGE.getValues();
+        Color.getValues();
 
     }
 }

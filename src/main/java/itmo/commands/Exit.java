@@ -1,11 +1,12 @@
 package itmo.commands;
 
-public class Exit implements Command{
+public class Exit implements Command {
 
-    public Exit(){}
+    public Exit() {
+    }
 
     @Override
-    public void execute(){
+    public void execute() {
         System.exit(0);
     }
 }

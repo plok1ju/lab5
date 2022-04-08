@@ -11,7 +11,7 @@ public class CollectionManager {
     public int[] getKeys(Hashtable<Integer, Dragon> collect) {
         TreeMap<Integer, Dragon> sortedMap = new TreeMap<>(collect);
         Set<Integer> badKeys = sortedMap.keySet();
-        for(Integer key : sortedMap.keySet()){
+        for (Integer key : sortedMap.keySet()) {
 
         }
         int[] keys = new int[collect.size()];
@@ -27,5 +27,5 @@ public class CollectionManager {
         }
         return keys;
 
-}
+    }
 }

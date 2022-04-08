@@ -6,7 +6,7 @@ import itmo.model.Dragon;
 
 import java.io.IOException;
 
-public class Save implements Command{
+public class Save implements Command {
 
     private final HashTableCollection<Integer, Dragon> collection;
 

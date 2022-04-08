@@ -4,11 +4,11 @@ import itmo.collection.HashTableCollection;
 
 import java.util.List;
 
-public class Show implements Command{
+public class Show implements Command {
 
     private final HashTableCollection<?, ?> collection;
 
-    public Show(HashTableCollection<?, ?> collection){
+    public Show(HashTableCollection<?, ?> collection) {
         this.collection = collection;
     }
 
