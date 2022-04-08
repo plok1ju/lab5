@@ -14,23 +14,27 @@ import java.util.Collections;
  */
 public class HashTableCollectSerializer {
 
-    /** Поле ключ и дракон
+    /**
+     * Поле ключ и дракон
      * {@link KeyDragonPair}
      */
     private final KeyDragonPair[] keyDragonPairs;
 
-    /** Поле время создания коллекции */
+    /**
+     * Поле время создания коллекции
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private final LocalDateTime localDateTime;
 
     /**
      * Конструктор класса HashTableCollectSerializer
+     *
      * @param hashTableCollection - значение поля hashTableCollection
      */
-    public HashTableCollectSerializer(HashTableCollection<Integer, Dragon> hashTableCollection){
+    public HashTableCollectSerializer(HashTableCollection<Integer, Dragon> hashTableCollection) {
         ArrayList<Integer> keys = Collections.list(hashTableCollection.keys());
         keyDragonPairs = new KeyDragonPair[keys.size()];
-        for(int i = 0; i < keys.size(); i++ ){
+        for (int i = 0; i < keys.size(); i++) {
             keyDragonPairs[i] = new KeyDragonPair(keys.get(i), hashTableCollection.get(keys.get(i)));
 
         }
@@ -39,6 +43,7 @@ public class HashTableCollectSerializer {
 
     /**
      * Получение keyDragonPairs
+     *
      * @return - значение поля keyDragonPairs
      */
     public KeyDragonPair[] getKeyDragonPairs() {
@@ -47,6 +52,7 @@ public class HashTableCollectSerializer {
 
     /**
      * Получение даты создания
+     *
      * @return - значение поля localDateTime
      */
     public LocalDateTime getLocalDateTime() {

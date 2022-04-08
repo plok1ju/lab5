@@ -13,8 +13,8 @@ import java.util.Locale;
  */
 public class DragonBuilder {
 
-    private Dragon dragon;
-    private boolean isConsole;
+    private final Dragon dragon;
+    private final boolean isConsole;
 
     public DragonBuilder(boolean isConsole) {
         this.isConsole = isConsole;
@@ -23,90 +23,82 @@ public class DragonBuilder {
 
     public Dragon build(Scannable scannable) throws Exception {
         this.buildName(scannable);
+        this.buildAge(scannable);
         this.buildCoordinates(scannable);
         this.setCreationDate();
-        this.buildPerson(scannable);
-        this.buildAge(scannable);
         this.buildDescription(scannable);
         this.buildColor(scannable);
         this.buildCharacter(scannable);
+        this.buildPerson(scannable);
 
         return this.dragon;
 
     }
 
     private void buildName(Scannable scannable) throws Exception {
-        if(isConsole){
+        if (isConsole) {
             try {
-                System.out.println("Введите имя:");
+                System.out.println("Введите имя дракона:");
                 String nameDragon = scannable.scanString();
                 dragon.setName(nameDragon);
 
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildName(scannable);
             }
-        }
-        else {
+        } else {
             String nameDragon = scannable.scanString();
             dragon.setName(nameDragon);
         }
     }
 
-    private void buildAge(Scannable scannable) {
-        if(isConsole){
-            try{
-                System.out.println("Введите возраст:");
+    private void buildAge(Scannable scannable) throws Exception {
+        if (isConsole) {
+            try {
+                System.out.println("Введите возраст дракона:");
                 String ageString = scannable.scanString();
                 Integer age;
-                if (ageString.equals("")){
+                if (ageString.equals("")) {
                     age = null;
-                }
-                else {
+                } else {
                     age = Integer.parseInt(ageString);
                 }
                 dragon.setAge(age);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildAge(scannable);
 
             }
-        }
-        else {
+        } else {
             String ageString = scannable.scanString();
             Integer age;
-            if (ageString.equals("")){
+            if (ageString.equals("")) {
                 age = null;
-            }
-            else {
+            } else {
                 age = Integer.parseInt(ageString);
             }
             dragon.setAge(age);
         }
     }
 
-    private void buildDescription(Scannable scannable){
-        if(isConsole){
-            try{
+    private void buildDescription(Scannable scannable) {
+        if (isConsole) {
+            try {
                 System.out.println("Введите описание дракона:");
                 String description = scannable.scanString();
-                if(description.equals("")){
+                if (description.equals("")) {
                     description = null;
                 }
                 dragon.setDescription(description);
 
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildDescription(scannable);
 
             }
-        }
-        else{
+        } else {
             String description = scannable.scanString();
-            if(description.equals("")){
+            if (description.equals("")) {
                 description = null;
             }
             dragon.setDescription(description);
@@ -114,38 +106,34 @@ public class DragonBuilder {
     }
 
     private void buildColor(Scannable scannable) throws Exception {
-        if(isConsole){
-            try{
-                System.out.println("Выберете одно из предложенных значений цвета");
+        if (isConsole) {
+            try {
+                System.out.println("Выберете одно из предложенных значений цвета для дракона");
                 System.out.println(Color.getValues());
                 Color color = Color.parse(scannable.scanString());
                 dragon.setColor(color);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildColor(scannable);
             }
-        }
-        else {
+        } else {
             Color color = Color.parse(scannable.scanString());
             dragon.setColor(color);
         }
     }
 
-    private void buildCharacter(Scannable scannable){
-        if(isConsole){
-            try{
-                System.out.println("Выберете одно из предложенных значений характера");
+    private void buildCharacter(Scannable scannable) throws Exception {
+        if (isConsole) {
+            try {
+                System.out.println("Выберете одно из предложенных значений характера дракона");
                 System.out.println(DragonCharacter.getValues());
                 DragonCharacter character = DragonCharacter.parse(scannable.scanString());
                 dragon.setCharacter(character);
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
                 this.buildCharacter(scannable);
             }
-        }
-        else {
+        } else {
             DragonCharacter character = DragonCharacter.parse(scannable.scanString());
             dragon.setCharacter(character);
         }
@@ -157,40 +145,36 @@ public class DragonBuilder {
 
     }
 
-    private void setCreationDate(){
+    private void setCreationDate() throws Exception {
         Date date = new Date();
         dragon.setCreationDate(date);
 
     }
 
     private void buildPerson(Scannable scannable) throws Exception {
-        if(isConsole){
+        if (isConsole) {
             System.out.println("Задать значение убийцы дракона? Введите 'да' или 'нет'");
             String answer = scannable.scanString().toUpperCase(Locale.ROOT);
-            if(answer.contains("ДА")){
+            if (answer.contains("ДА")) {
                 PersonBuilder personBuilder = new PersonBuilder(isConsole);
                 dragon.setKiller(personBuilder.build(scannable));
                 return;
             }
-            if (answer.contains("НЕТ")){
+            if (answer.contains("НЕТ")) {
                 dragon.setKiller(null);
                 return;
             }
             this.buildPerson(scannable);
 
-        }
-        else {
-            try{
+        } else {
+            try {
                 PersonBuilder personBuilder = new PersonBuilder(isConsole);
                 dragon.setKiller(personBuilder.build(scannable));
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 dragon.setKiller(null);
             }
         }
     }
-
-
 
 
 }

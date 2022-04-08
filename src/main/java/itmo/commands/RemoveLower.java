@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 //удалить из коллекции все элементы, меньшие, чем заданный
-public class RemoveLower implements Command{
+public class RemoveLower implements Command {
 
     private final HashTableCollection<Integer, Dragon> collection;
     private final Dragon dragon;

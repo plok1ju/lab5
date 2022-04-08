@@ -3,50 +3,64 @@ package itmo.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
+
 /**
  * Класс человек
  */
 public class Person {
 
-    /** Поле имя человека */
+    /**
+     * Поле имя человека
+     */
     private String name; //Поле не может быть null, Строка не может быть пустой
 
-    /** Поле дата рождения человека */
+    /**
+     * Поле дата рождения человека
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime birthday; //Поле не может быть null
 
-    /** Поле рост человека */
+    /**
+     * Поле рост человека
+     */
     private Long height; //Поле может быть null, Значение поля должно быть больше 0
 
-    /** Поле паспорт человека */
+    /**
+     * Поле паспорт человека
+     */
     private String passportID; //Значение этого поля должно быть уникальным, Строка не может быть пустой, Поле не может быть null
 
-    /** Поле национальность человека */
+    /**
+     * Поле национальность человека
+     */
     private Country nationality; //Поле не может быть null
 
     /**
      * Пустой конструктор класса Person
      */
-    public Person(){}
+    public Person() {
+    }
 
     /**
      * Конструктор класса Person
-     * @param name - значение поля name
-     * @param birthday - значение поля birthday
-     * @param height - значение поля height
-     * @param passportID - значение поля passportID
+     *
+     * @param name        - значение поля name
+     * @param birthday    - значение поля birthday
+     * @param height      - значение поля height
+     * @param passportID  - значение поля passportID
      * @param nationality - значение поля nationality
      */
-    public Person(String name, LocalDateTime birthday, Long height, String passportID, Country nationality) {
-        this.name = name;
-        this.birthday = birthday;
-        this.height = height;
-        this.passportID = passportID;
-        this.nationality = nationality;
+    public Person(String name, LocalDateTime birthday, Long height, String passportID, Country nationality) throws Exception {
+        setName(name);
+        setBirthday(birthday);
+        setHeight(height);
+        setPassportID(passportID);
+        setNationality(nationality);
     }
 
     /**
      * Получение passportID
+     *
      * @return - значение поля passportID
      */
     public String getPassportID() {
@@ -55,14 +69,21 @@ public class Person {
 
     /**
      * Установка passportID
+     *
      * @param passportID - значение поля passportID
      */
-    public void setPassportID(String passportID) {
+    public void setPassportID(String passportID) throws Exception {
+        if (passportID == null) {
+            throw new Exception("Поле passportID не может быть null!");
+        } else if (passportID.equals("")) {
+            throw new Exception("Поле passportID не может быть пустой строкой!");
+        }
         this.passportID = passportID;
     }
 
     /**
      * Получение height
+     *
      * @return - значение поля height
      */
     public Long getHeight() {
@@ -71,14 +92,21 @@ public class Person {
 
     /**
      * Установка height
+     *
      * @param height - значение поля height
      */
-    public void setHeight(Long height) {
+    public void setHeight(Long height) throws Exception {
+        if (height == null) {
+            throw new Exception("Поле height не может быть null!");
+        } else if (height <= 0) {
+            throw new Exception("Поле height должно быть больше 0!");
+        }
         this.height = height;
     }
 
     /**
      * Получение nationality
+     *
      * @return - значение поля nationality
      */
     public Country getNationality() {
@@ -87,14 +115,19 @@ public class Person {
 
     /**
      * Установка nationality
+     *
      * @param nationality - значение поля nationality
      */
-    public void setNationality(Country nationality) {
+    public void setNationality(Country nationality) throws Exception {
+        if (nationality == null) {
+            throw new Exception("Поле nationality не может быть null!");
+        }
         this.nationality = nationality;
     }
 
     /**
      * Получение birthday
+     *
      * @return - значение поля birthday
      */
     public LocalDateTime getBirthday() {
@@ -103,14 +136,18 @@ public class Person {
 
     /**
      * Установка birthday
+     *
      * @param birthday - значение поля birthday
      */
-    public void setBirthday(LocalDateTime birthday) {
+    public void setBirthday(LocalDateTime birthday) throws Exception {
+        if (birthday == null)
+            throw new Exception("Поле birthday не может быть null!");
         this.birthday = birthday;
     }
 
     /**
      * Получение name
+     *
      * @return - значение поля name
      */
     public String getName() {
@@ -119,23 +156,30 @@ public class Person {
 
     /**
      * Установка name
+     *
      * @param name - значение поля name
      */
-    public void setName(String name) {
+    public void setName(String name) throws Exception {
+        if (name == null) {
+            throw new Exception("Поле name не может быть null!");
+        } else if (name.equals("")) {
+            throw new Exception("Поле name не может быть пустой строкой!");
+        }
         this.name = name;
     }
 
     /**
      * Переопределение метода toString
+     *
      * @return - значения всех полей класса Person
      */
     @Override
     public String toString() {
         return "name: " + name + "\n" +
-        "birthday: " + birthday + "\n" +
-        "height: " + height + "\n" +
-        "passportID: " + passportID + "\n" +
-        "nationality: " + nationality;
+                "birthday: " + birthday + "\n" +
+                "height: " + height + "\n" +
+                "passportID: " + passportID + "\n" +
+                "nationality: " + nationality;
     }
 
 }

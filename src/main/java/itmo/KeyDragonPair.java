@@ -1,15 +1,19 @@
 package itmo;
 
 import itmo.model.Dragon;
+
 /**
  * Этот класс хранит элемент дракон и ключ присвоенный дракону
  */
 public class KeyDragonPair {
 
-    /** Поле значение ключа дракона */
+    /**
+     * Поле значение ключа дракона
+     */
     private Integer key;
 
-    /** Поле дракон
+    /**
+     * Поле дракон
      * {@link Dragon}
      */
     private Dragon dragon;
@@ -17,14 +21,16 @@ public class KeyDragonPair {
     /**
      * Пустой конструктор класса KeyDragonPair
      */
-    public KeyDragonPair(){}
+    public KeyDragonPair() {
+    }
 
     /**
      * Конструктор класса KeyDragonPair
-     * @param key - значение поля key
+     *
+     * @param key    - значение поля key
      * @param dragon - значение поля dragon
      */
-    public KeyDragonPair(Integer key, Dragon dragon){
+    public KeyDragonPair(Integer key, Dragon dragon) {
         this.dragon = dragon;
         this.key = key;
     }
@@ -32,6 +38,7 @@ public class KeyDragonPair {
 
     /**
      * Получение dragon
+     *
      * @return - значение поля dragon
      */
     public Dragon getDragon() {
@@ -40,6 +47,7 @@ public class KeyDragonPair {
 
     /**
      * Добавление dragon
+     *
      * @param dragon - значение поля dragon
      */
     public void setDragon(Dragon dragon) {
@@ -48,6 +56,7 @@ public class KeyDragonPair {
 
     /**
      * Получение key
+     *
      * @return - значение поля key
      */
     public Integer getKey() {
@@ -56,6 +65,7 @@ public class KeyDragonPair {
 
     /**
      * Установка key
+     *
      * @param key - значение поля key
      */
     public void setKey(Integer key) {

@@ -2,7 +2,7 @@ package itmo.commands;
 
 import itmo.collection.HashTableCollection;
 
-public class RemoveKey implements Command{
+public class RemoveKey implements Command {
 
     private final HashTableCollection<? extends Integer, ?> collection;
     private final Integer key;

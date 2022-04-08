@@ -2,9 +2,9 @@ package itmo.io;
 
 import java.util.Scanner;
 
-public class ConsoleScan implements Scannable{
+public class ConsoleScan implements Scannable {
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public ConsoleScan() {
         scanner = new Scanner(System.in);

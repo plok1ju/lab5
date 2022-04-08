@@ -1,11 +1,12 @@
 package itmo.commands;
 
-public class Help implements Command{
+public class Help implements Command {
 
-    public Help(){}
+    public Help() {
+    }
 
     @Override
-    public void execute(){
+    public void execute() {
         System.out.println("help : вывести справку по доступным командам\n" +
                 "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
                 "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +

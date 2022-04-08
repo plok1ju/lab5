@@ -6,7 +6,7 @@ import itmo.collection.HashTableCollection;
 import java.util.Comparator;
 import java.util.List;
 
-public class PrintDescending implements Command{
+public class PrintDescending implements Command {
 
     private final HashTableCollection<? extends Integer, ?> collection;
 

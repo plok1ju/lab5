@@ -12,20 +12,26 @@ import java.time.LocalDateTime;
  */
 public class HashTableCollectDeserializer {
 
-    /** Поле элемент дракон и ключ присвоенный дракону */
+    /**
+     * Поле элемент дракон и ключ присвоенный дракону
+     */
     private KeyDragonPair[] keyDragonPairs;
 
-    /** Дата создания коллекции */
+    /**
+     * Дата создания коллекции
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime localDateTime;
 
     /**
      * Пустой конструктор класса HashTableCollectDeserializer
      */
-    public HashTableCollectDeserializer(){}
+    public HashTableCollectDeserializer() {
+    }
 
     /**
      * Добавление драконов и присвоенных им ключей
+     *
      * @param keyDragonPairs - значение поля passportID
      */
     public void setKeyDragonPairs(KeyDragonPair[] keyDragonPairs) {
@@ -34,12 +40,13 @@ public class HashTableCollectDeserializer {
 
     /**
      * Получение коллекции
+     *
      * @return - коллекция HashTableCollection
      */
-    public HashTableCollection<Integer, Dragon> getCollection(){
+    public HashTableCollection<Integer, Dragon> getCollection() {
         HashTableCollection<Integer, Dragon> collection = new HashTableCollection<>();
 
-        for(KeyDragonPair pair : keyDragonPairs){
+        for (KeyDragonPair pair : keyDragonPairs) {
             Dragon dragon = pair.getDragon();
             if (dragon.getKiller().getName() == null)
                 dragon.setKiller(null);
@@ -53,6 +60,7 @@ public class HashTableCollectDeserializer {
 
     /**
      * Добавление даты создания коллекции
+     *
      * @param localDateTime - значение поля localDateTime
      */
     public void setLocalDateTime(LocalDateTime localDateTime) {

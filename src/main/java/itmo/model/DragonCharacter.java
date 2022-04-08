@@ -12,19 +12,25 @@ public enum DragonCharacter {
 
     /**
      * Получение элементов enum
+     *
      * @return - строка со значениями
      */
     public static String getValues() {
         DragonCharacter[] charactersArray = DragonCharacter.values();
         StringBuilder stringBuilder = new StringBuilder();
-        for(DragonCharacter character : charactersArray){
+        for (DragonCharacter character : charactersArray) {
             stringBuilder.append(character).append(", ");
         }
         return stringBuilder.toString();
 
     }
 
-    public static DragonCharacter parse(String characterString){
-        return valueOf(characterString.toUpperCase(Locale.ROOT).trim());
+    public static DragonCharacter parse(String characterString) throws Exception {
+        try {
+            return valueOf(characterString.toUpperCase(Locale.ROOT).trim());
+        } catch (Exception e) {
+            throw new Exception("В " + DragonCharacter.class.getSimpleName() + " нет константы " + characterString + " :(");
+        }
+
     }
 }

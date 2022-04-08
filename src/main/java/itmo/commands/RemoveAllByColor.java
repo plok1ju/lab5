@@ -6,7 +6,7 @@ import itmo.model.Colorable;
 
 import java.util.List;
 
-public class RemoveAllByColor implements Command{
+public class RemoveAllByColor implements Command {
 
     private final HashTableCollection<?, ? extends Colorable> collection;
     private final Color color;
