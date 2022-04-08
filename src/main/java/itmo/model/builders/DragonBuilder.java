@@ -1,6 +1,7 @@
 package itmo.model.builders;
 
 import itmo.io.Scannable;
+import itmo.manager.IdGenerator;
 import itmo.model.Color;
 import itmo.model.Dragon;
 import itmo.model.DragonCharacter;
@@ -22,6 +23,7 @@ public class DragonBuilder {
     }
 
     public Dragon build(Scannable scannable) throws Exception {
+        this.buildId();
         this.buildName(scannable);
         this.buildAge(scannable);
         this.buildCoordinates(scannable);
@@ -33,6 +35,10 @@ public class DragonBuilder {
 
         return this.dragon;
 
+    }
+
+    private void buildId() throws Exception {
+        dragon.setId(IdGenerator.getId());
     }
 
     private void buildName(Scannable scannable) throws Exception {
