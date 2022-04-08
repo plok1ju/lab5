@@ -6,6 +6,7 @@ import itmo.model.Color;
 import itmo.model.Dragon;
 import itmo.model.DragonCharacter;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Locale;
 
@@ -87,7 +88,7 @@ public class DragonBuilder {
         }
     }
 
-    private void buildDescription(Scannable scannable) {
+    private void buildDescription(Scannable scannable) throws IOException {
         if (isConsole) {
             try {
                 System.out.println("Введите описание дракона:");

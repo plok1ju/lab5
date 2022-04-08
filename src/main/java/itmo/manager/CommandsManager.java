@@ -135,10 +135,14 @@ public class CommandsManager {
                 throw new Exception("Такой команды нет :(");
             }
 
-//            case "execute_script" :{
-//
-//                return new ExecuteScript();
-//            }
+            case "execute_script" :{
+
+                if (arrayLine.length < 2){
+                    throw new Exception("Введены не все поля");
+                }
+                String nameFile = arrayLine[1];
+                return new ExecuteScript(nameFile, collection);
+            }
 
         }
 
