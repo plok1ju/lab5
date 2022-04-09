@@ -31,7 +31,7 @@ public class Main {
             command.execute();
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Что-то пошло не так: " + e.getMessage());
         }
         getCommand(commandsManager, scannable);
     }

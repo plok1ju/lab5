@@ -45,7 +45,7 @@ public class PersonBuilder {
         } else {
             String name = scannable.scanString();
             if (name.equals("")) {
-                throw new Exception("Что-то"); //TODO можно что то добавить а можно и нет
+                throw new Exception("Поле name не может быть null! Исправьте файлик!");
             }
             person.setName(name);
 
@@ -102,6 +102,7 @@ public class PersonBuilder {
             try {
                 System.out.println("Введите ID паспорта: ");
                 String passportId = scannable.scanString();
+
                 person.setPassportID(passportId);
             } catch (Exception e) {
                 System.out.println("Что-то пошло не так: " + e.getMessage());
