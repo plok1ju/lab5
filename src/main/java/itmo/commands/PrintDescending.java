@@ -2,8 +2,9 @@ package itmo.commands;
 
 
 import itmo.collection.HashTableCollection;
+import itmo.comparators.CollectionComparator;
+import itmo.model.Dragon;
 
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -15,14 +16,14 @@ public class PrintDescending implements Command {
      * Поле collection
      * {@link HashTableCollection}
      */
-    private final HashTableCollection<? extends Integer, ?> collection;
+    private final HashTableCollection<Integer, Dragon> collection;
 
     /**
      * Конструктор класса PrintDescending
      *
      * @param collection - Поле collection
      */
-    public PrintDescending(HashTableCollection<? extends Integer, ?> collection) {
+    public PrintDescending(HashTableCollection<Integer, Dragon> collection) {
         this.collection = collection;
     }
 
@@ -32,10 +33,11 @@ public class PrintDescending implements Command {
      */
     @Override
     public void execute() {
-        List<? extends Integer> keys = collection.getKeysAsList();
-        keys.sort(Comparator.reverseOrder()); // реверс ключей
+        List<Integer> keys = collection.getKeysAsList();
+        keys.sort(new CollectionComparator(collection).reversed()); // реверс ключей
         keys.forEach(key -> {
             Object o = collection.get(key);
+            System.out.println("=====");
             System.out.println("Ключ элемента " + key + ": " + o);
 
         });

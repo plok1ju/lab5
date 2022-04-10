@@ -64,8 +64,8 @@ public class CommandsManager {
                     throw new Exception("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
-                Dragon dragon = new DragonBuilder(isConsole).build(scannable);
-                return new Insert(collection, key, dragon);
+                DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
+                return new Insert(collection, key, dragonBuilder);
             }
 
             case "exit": {
@@ -123,9 +123,8 @@ public class CommandsManager {
 
             case "remove_lower": {
 
-                DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
-                Dragon dragon = dragonBuilder.build(scannable);
-                return new RemoveLower(collection, dragon);
+                DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
+                return new RemoveLower(collection, dragonBuilder);
             }
 
             case "replace_if_lower": {
@@ -133,20 +132,18 @@ public class CommandsManager {
                 if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
-                DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
-                Dragon dragon = dragonBuilder.build(scannable);
+                DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
                 Integer key = Integer.parseInt(arrayLine[1]);
-                return new ReplaceIfLowe(collection, key, dragon);
+                return new ReplaceIfLowe(collection, key, dragonBuilder);
             }
 
             case "update": {
                 if (arrayLine.length < 2) {
                     throw new Exception("Введены не все поля");
                 }
-                DragonBuilder dragonBuilder = new DragonBuilder(isConsole);
-                Dragon dragon = dragonBuilder.build(scannable);
+                DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
                 Long id = Long.parseLong(arrayLine[1]);
-                return new UpdateId(collection, id, dragon);
+                return new UpdateId(collection, id, dragonBuilder);
 
             }
             default: {

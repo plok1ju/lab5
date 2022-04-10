@@ -330,6 +330,9 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     @Override
     public int compareTo(Dragon o) {
-        return this.id.compareTo(o.id);
+        if (o == null){
+            return 1;
+        }
+        return this.name.compareTo(o.getName());
     }
 }

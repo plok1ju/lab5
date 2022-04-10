@@ -2,8 +2,7 @@ package itmo.commands;
 
 import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
-
-import java.io.IOException;
+import itmo.model.builders.DragonBuilder;
 
 /**
  * Класс отвечает за добавление нового элемента в коллекцию
@@ -25,19 +24,19 @@ public class Insert implements Command {
      * Поле dragon
      * {@link Dragon}
      */
-    private final Dragon dragon;
+    private final DragonBuilder dragonBuilder;
 
     /**
      * Конструктор класса Insert
      *
      * @param collection - Поле collection
      * @param key        - Поле key
-     * @param dragon     - Поле dragon
+     * @param dragonBuilder     - Поле dragonBuilder
      */
-    public Insert(HashTableCollection<Integer, Dragon> collection, Integer key, Dragon dragon) {
+    public Insert(HashTableCollection<Integer, Dragon> collection, Integer key, DragonBuilder dragonBuilder) {
         this.collection = collection;
         this.key = key;
-        this.dragon = dragon;
+        this.dragonBuilder = dragonBuilder;
     }
 
     /**
@@ -45,7 +44,11 @@ public class Insert implements Command {
      * Добавление элемента в коллекцию
      */
     @Override
-    public void execute() throws IOException {
+    public void execute() throws Exception {
+        if (collection.getKeysAsList().contains(key)){
+            throw new Exception("Элемент с таким key уже есть");
+        }
+        Dragon dragon = this.dragonBuilder.build();
         collection.put(key, dragon);
 
     }

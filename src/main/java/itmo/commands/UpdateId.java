@@ -2,6 +2,7 @@ package itmo.commands;
 
 import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
+import itmo.model.builders.DragonBuilder;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,21 +26,21 @@ public class UpdateId implements Command {
 
     /**
      * Поле dragon
-     * {@link Dragon}
+     * {@link DragonBuilder}
      */
-    private final Dragon dragon;
+    private final DragonBuilder dragonBuilder;
 
     /**
      * Конструктор класса UpdateId
      *
      * @param collection - Поле collection
      * @param id         - Поле id
-     * @param dragon     - Поле dragon
+     * @param dragonBuilder     - Поле dragonBuilder
      */
-    public UpdateId(HashTableCollection<Integer, Dragon> collection, Long id, Dragon dragon) {
+    public UpdateId(HashTableCollection<Integer, Dragon> collection, Long id, DragonBuilder dragonBuilder) {
         this.collection = collection;
         this.id = id;
-        this.dragon = dragon;
+        this.dragonBuilder = dragonBuilder;
     }
 
     /**
@@ -49,12 +50,13 @@ public class UpdateId implements Command {
     @Override
     public void execute() throws Exception {
         List<Integer> keys = collection.getKeysAsList();
-        dragon.setId(this.id);
         Stream<Integer> integerStream = keys.stream().filter(key -> id.equals(collection.get(key).getId()));
         Optional<Integer> optionalKey = integerStream.findAny();
         if (!optionalKey.isPresent()) {
             throw new Exception("Нет такого id");
         }
+        Dragon dragon = dragonBuilder.build();;
+        dragon.setId(this.id);
         Integer dragonKey = optionalKey.get();
         keys.stream().filter(key -> id.equals(collection.get(key).getId())).forEach(collection::remove);
 

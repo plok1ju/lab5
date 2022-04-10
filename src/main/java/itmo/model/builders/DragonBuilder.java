@@ -26,12 +26,15 @@ public class DragonBuilder {
      */
     private final boolean isConsole;
 
+    private Scannable scannable;
+
     /**
      * Конструктор класса DragonBuilder
      *
      * @param isConsole  - значение поля isConsole
      */
-    public DragonBuilder(boolean isConsole) {
+    public DragonBuilder(boolean isConsole, Scannable scannable) {
+        this.scannable = scannable;
         this.isConsole = isConsole;
         dragon = new Dragon();
     }
@@ -39,10 +42,9 @@ public class DragonBuilder {
     /**
      * Вызывает необходимые методы для добавления полей в объект класса Dragon
      *
-     * @param scannable - значение поля scannable
      * @return dragon   - значение объекта dragon
      */
-    public Dragon build(Scannable scannable) throws Exception {
+    public Dragon build() throws Exception {
         this.buildId();
         this.buildName(scannable);
         this.buildAge(scannable);
