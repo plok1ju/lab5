@@ -16,7 +16,9 @@ import java.io.IOException;
  */
 public class FileSaver {
 
-
+    /**
+     * Метод отвечает за сохранение коллекции в файл xml
+     */
     public void saveInfo(HashTableCollection<Integer, Dragon> dragons) throws IOException {
 
         HashTableCollectSerializer serializer = new HashTableCollectSerializer(dragons);

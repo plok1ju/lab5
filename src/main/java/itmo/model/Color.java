@@ -26,6 +26,11 @@ public enum Color {
 
     }
 
+    /**
+     * Метод определяет, то ли значение добавляется в enum
+     *
+     * @return - цвет
+     */
     public static Color parse(String stringColor) throws Exception {
         try {
             return valueOf(stringColor.toUpperCase(Locale.ROOT).trim());

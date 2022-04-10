@@ -1,10 +1,19 @@
 package itmo.commands;
-
+/**
+ * Класс отвечает за выведение информации о доступных командах
+ */
 public class Help implements Command {
 
+    /**
+     * Пустой конструктор класса Help
+     */
     public Help() {
     }
 
+    /**
+     * Переопределение метода execute
+     * Вывод возможных команд
+     */
     @Override
     public void execute() {
         System.out.println("help : вывести справку по доступным командам\n" +

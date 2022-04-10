@@ -14,6 +14,7 @@ public class HashTableCollectDeserializer {
 
     /**
      * Поле элемент дракон и ключ присвоенный дракону
+     * {@link KeyDragonPair}
      */
     private KeyDragonPair[] keyDragonPairs;
 

@@ -25,6 +25,11 @@ public enum Country {
 
     }
 
+    /**
+     * Метод определяет, то ли значение добавляется в enum
+     *
+     * @return - страна рождения
+     */
     public static Country parse(String countryString) throws Exception {
         try {
             return valueOf(countryString.toUpperCase(Locale.ROOT).trim());
