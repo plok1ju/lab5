@@ -4,15 +4,30 @@ import itmo.collection.HashTableCollection;
 
 import java.util.List;
 
+/**
+ * Класс отвечает за показ коллекции
+ */
 public class Show implements Command {
 
+    /**
+     * Поле collection
+     * {@link HashTableCollection}
+     */
     private final HashTableCollection<?, ?> collection;
 
+    /**
+     * Конструктор класса Show
+     *
+     * @param collection - Поле collection
+     */
     public Show(HashTableCollection<?, ?> collection) {
         this.collection = collection;
     }
 
-
+    /**
+     * Переопределение метода execute
+     * Сохранение коллекции в файл
+     */
     @Override
     public void execute() {
         List<?> keys = collection.getKeysAsList();

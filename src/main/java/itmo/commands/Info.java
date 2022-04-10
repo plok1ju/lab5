@@ -1,6 +1,7 @@
 package itmo.commands;
 
 import itmo.collection.HashTableCollection;
+
 /**
  * Класс отвечает за вывод информации о коллекции
  */
@@ -13,7 +14,7 @@ public class Info implements Command {
     private final HashTableCollection<?, ?> collection;
 
     /**
-     * Конструктор класса Clear
+     * Конструктор класса Info
      *
      * @param collection - Поле collection
      */

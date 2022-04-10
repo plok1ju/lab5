@@ -4,6 +4,7 @@ import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
 
 import java.io.IOException;
+
 /**
  * Класс отвечает за добавление нового элемента в коллекцию
  */
@@ -27,11 +28,11 @@ public class Insert implements Command {
     private final Dragon dragon;
 
     /**
-     * Конструктор класса Clear
+     * Конструктор класса Insert
      *
      * @param collection - Поле collection
-     * @param key - Поле key
-     * @param dragon - Поле dragon
+     * @param key        - Поле key
+     * @param dragon     - Поле dragon
      */
     public Insert(HashTableCollection<Integer, Dragon> collection, Integer key, Dragon dragon) {
         this.collection = collection;
