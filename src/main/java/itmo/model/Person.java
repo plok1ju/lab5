@@ -1,6 +1,7 @@
 package itmo.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import itmo.exceptions.CollectionException;
 
 import java.time.LocalDateTime;
 
@@ -74,9 +75,9 @@ public class Person {
      */
     public void setPassportID(String passportID) throws Exception {
         if (passportID == null) {
-            throw new Exception("Поле passportID не может быть null!");
+            throw new CollectionException("Поле passportID не может быть null!");
         } else if (passportID.equals("")) {
-            throw new Exception("Поле passportID не может быть пустой строкой!");
+            throw new CollectionException("Поле passportID не может быть пустой строкой!");
         }
         this.passportID = passportID;
     }
@@ -97,9 +98,9 @@ public class Person {
      */
     public void setHeight(Long height) throws Exception {
         if (height == null) {
-            throw new Exception("Поле height не может быть null!");
+            throw new CollectionException("Поле height не может быть null!");
         } else if (height <= 0) {
-            throw new Exception("Поле height должно быть больше 0!");
+            throw new CollectionException("Поле height должно быть больше 0!");
         }
         this.height = height;
     }
@@ -120,7 +121,7 @@ public class Person {
      */
     public void setNationality(Country nationality) throws Exception {
         if (nationality == null) {
-            throw new Exception("Поле nationality не может быть null!");
+            throw new CollectionException("Поле nationality не может быть null!");
         }
         this.nationality = nationality;
     }
@@ -141,7 +142,7 @@ public class Person {
      */
     public void setBirthday(LocalDateTime birthday) throws Exception {
         if (birthday == null)
-            throw new Exception("Поле birthday не может быть null!");
+            throw new CollectionException("Поле birthday не может быть null!");
         this.birthday = birthday;
     }
 
@@ -161,9 +162,9 @@ public class Person {
      */
     public void setName(String name) throws Exception {
         if (name == null) {
-            throw new Exception("Поле name не может быть null!");
+            throw new CollectionException("Поле name не может быть null!");
         } else if (name.equals("")) {
-            throw new Exception("Поле name не может быть пустой строкой!");
+            throw new CollectionException("Поле name не может быть пустой строкой!");
         }
         this.name = name;
     }

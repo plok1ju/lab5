@@ -1,5 +1,7 @@
 package itmo.model;
 
+import itmo.exceptions.CollectionException;
+
 /**
  * Класс координат дракона
  */
@@ -48,7 +50,7 @@ public class Coordinates {
      */
     public void setX(Double x) throws Exception {
         if (x == null) {
-            throw new Exception("Координата х не может быть null");
+            throw new CollectionException("Координата х не может быть null");
         }
         this.x = x;
     }
@@ -69,7 +71,7 @@ public class Coordinates {
      */
     public void setY(int y) throws Exception {
         if (y <= -16) {
-            throw new Exception("Координата y должна быть больше -16!");
+            throw new CollectionException("Координата y должна быть больше -16!");
         }
         this.y = y;
     }

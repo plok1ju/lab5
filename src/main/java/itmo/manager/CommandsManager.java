@@ -2,6 +2,7 @@ package itmo.manager;
 
 import itmo.collection.HashTableCollection;
 import itmo.commands.*;
+import itmo.exceptions.CollectionException;
 import itmo.io.Scannable;
 import itmo.model.Color;
 import itmo.model.Dragon;
@@ -37,7 +38,7 @@ public class CommandsManager {
     public Command getCommand(String commandLine, Scannable scannable, boolean isConsole) throws Exception {
         String[] arrayLine = commandLine.split(" ");
         if (arrayLine.length == 0) {
-            throw new Exception("Нет команд");
+            throw new CollectionException("Нет команд");
 
         }
         String command = arrayLine[0];
@@ -61,7 +62,7 @@ public class CommandsManager {
             case "insert": {
 
                 if (arrayLine.length < 2) {
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
@@ -87,7 +88,7 @@ public class CommandsManager {
             case "remove_all_by_color": {
 
                 if (arrayLine.length < 2) {
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 Color color = Color.parse(arrayLine[1]);
                 return new RemoveAllByColor(collection, color);
@@ -96,7 +97,7 @@ public class CommandsManager {
             case "remove_greater_key": {
 
                 if (arrayLine.length < 2) {
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
                 return new RemoveGreaterKey(collection, key);
@@ -105,7 +106,7 @@ public class CommandsManager {
             case "remove_key": {
 
                 if (arrayLine.length < 2) {
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 Integer key = Integer.parseInt(arrayLine[1]);
                 return new RemoveKey(collection, key);
@@ -130,7 +131,7 @@ public class CommandsManager {
             case "replace_if_lower": {
 
                 if (arrayLine.length < 2) {
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
                 Integer key = Integer.parseInt(arrayLine[1]);
@@ -139,7 +140,7 @@ public class CommandsManager {
 
             case "update": {
                 if (arrayLine.length < 2) {
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
                 Long id = Long.parseLong(arrayLine[1]);
@@ -147,13 +148,13 @@ public class CommandsManager {
 
             }
             default: {
-                throw new Exception("Такой команды нет :(");
+                throw new CollectionException("Такой команды нет :(");
             }
 
             case "execute_script" :{
 
                 if (arrayLine.length < 2){
-                    throw new Exception("Введены не все поля");
+                    throw new CollectionException("Введены не все поля");
                 }
                 String nameFile = arrayLine[1];
                 return new ExecuteScript(nameFile, collection);

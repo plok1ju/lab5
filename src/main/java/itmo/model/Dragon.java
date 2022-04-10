@@ -1,6 +1,7 @@
 package itmo.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import itmo.exceptions.CollectionException;
 
 import java.util.Date;
 import java.util.Objects;
@@ -108,9 +109,9 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setId(Long id) throws Exception {
         if (id == null) {
-            throw new Exception("Поле id не может быть null!");
+            throw new CollectionException("Поле id не может быть null!");
         } else if (id <= 0) {
-            throw new Exception("Поле id должно быть больше 0!");
+            throw new CollectionException("Поле id должно быть больше 0!");
         }//TODO проверка уникальный ли ключ добавляется? сделать через получение ключей которые уже в коллекции мб?
 
         this.id = id;
@@ -132,9 +133,9 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setName(String name) throws Exception {
         if (name == null) {
-            throw new Exception("Поле name не может быть null!");
+            throw new CollectionException("Поле name не может быть null!");
         } else if (name.equals("")) {
-            throw new Exception("Поле name не может быть пустой строкой!");
+            throw new CollectionException("Поле name не может быть пустой строкой!");
         }
         this.name = name;
     }
@@ -155,7 +156,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setCoordinates(Coordinates coordinates) throws Exception {
         if (coordinates == null) {
-            throw new Exception("Поле coordinates не может быть null!");
+            throw new CollectionException("Поле coordinates не может быть null!");
         }
         this.coordinates = coordinates;
     }
@@ -176,7 +177,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setCreationDate(Date creationDate) throws Exception {
         if (creationDate == null) {
-            throw new Exception("Поле name не может быть null!");
+            throw new CollectionException("Поле name не может быть null!");
         }
         this.creationDate = creationDate;
     }
@@ -198,7 +199,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setAge(Integer age) throws Exception {
         if (age != null && age <= 0) {
-            throw new Exception("Поле age должно быть больше нуля!");
+            throw new CollectionException("Поле age должно быть больше нуля!");
         }
         this.age = age;
     }
@@ -238,7 +239,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setColor(Color color) throws Exception {
         if (color == null) {
-            throw new Exception("Поле color не может быть null!");
+            throw new CollectionException("Поле color не может быть null!");
         }
         this.color = color;
     }
@@ -259,7 +260,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     public void setCharacter(DragonCharacter character) throws Exception {
         if (character == null) {
-            throw new Exception("Поле character не может быть null!");
+            throw new CollectionException("Поле character не может быть null!");
         }
         this.character = character;
     }

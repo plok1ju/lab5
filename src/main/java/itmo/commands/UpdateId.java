@@ -1,6 +1,7 @@
 package itmo.commands;
 
 import itmo.collection.HashTableCollection;
+import itmo.exceptions.CollectionException;
 import itmo.model.Dragon;
 import itmo.model.builders.DragonBuilder;
 
@@ -53,7 +54,7 @@ public class UpdateId implements Command {
         Stream<Integer> integerStream = keys.stream().filter(key -> id.equals(collection.get(key).getId()));
         Optional<Integer> optionalKey = integerStream.findAny();
         if (!optionalKey.isPresent()) {
-            throw new Exception("Нет такого id");
+            throw new CollectionException("Нет такого id");
         }
         Dragon dragon = dragonBuilder.build();;
         dragon.setId(this.id);

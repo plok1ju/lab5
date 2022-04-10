@@ -1,6 +1,7 @@
 package itmo.commands;
 
 import itmo.collection.HashTableCollection;
+import itmo.exceptions.CollectionException;
 import itmo.model.Dragon;
 import itmo.model.builders.DragonBuilder;
 
@@ -46,7 +47,7 @@ public class Insert implements Command {
     @Override
     public void execute() throws Exception {
         if (collection.getKeysAsList().contains(key)){
-            throw new Exception("Элемент с таким key уже есть");
+            throw new CollectionException("Элемент с таким key уже есть");
         }
         Dragon dragon = this.dragonBuilder.build();
         collection.put(key, dragon);
