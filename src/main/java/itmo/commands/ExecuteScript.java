@@ -56,6 +56,7 @@ public class ExecuteScript implements Command{
             String commandLine = scannable.scanString();
             while (commandLine != null){
                 Command command = commandsManager.getCommand(commandLine, scannable, false);
+                command.execute();
                 commandLine = scannable.scanString();
 
             }
