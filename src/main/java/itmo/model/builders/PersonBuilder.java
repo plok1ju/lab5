@@ -1,5 +1,6 @@
 package itmo.model.builders;
 
+import itmo.exceptions.CollectionException;
 import itmo.io.Scannable;
 import itmo.model.Country;
 import itmo.model.Person;
@@ -68,7 +69,7 @@ public class PersonBuilder {
         } else {
             String name = scannable.scanString();
             if (name.equals("")) {
-                throw new Exception();
+                throw new CollectionException();
             }
             person.setName(name);
 

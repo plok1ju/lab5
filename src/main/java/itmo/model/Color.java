@@ -1,5 +1,7 @@
 package itmo.model;
 
+import itmo.exceptions.CollectionException;
+
 import java.util.Locale;
 
 /**
@@ -35,7 +37,7 @@ public enum Color {
         try {
             return valueOf(stringColor.toUpperCase(Locale.ROOT).trim());
         } catch (Exception e) {
-            throw new Exception("В " + Color.class.getSimpleName() + " нет константы " + stringColor + " :(");
+            throw new CollectionException("В " + Color.class.getSimpleName() + " нет константы " + stringColor + " :(");
         }
     }
 }

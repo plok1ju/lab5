@@ -1,5 +1,7 @@
 package itmo.model;
 
+import itmo.exceptions.CollectionException;
+
 import java.util.Locale;
 
 /**
@@ -34,7 +36,7 @@ public enum Country {
         try {
             return valueOf(countryString.toUpperCase(Locale.ROOT).trim());
         } catch (Exception e) {
-            throw new Exception("В " + Country.class.getSimpleName() + " нет константы " + countryString + " :(");
+            throw new CollectionException("В " + Country.class.getSimpleName() + " нет константы " + countryString + " :(");
         }
     }
 }
