@@ -26,7 +26,7 @@ public class Show implements Command {
 
     /**
      * Переопределение метода execute
-     * Сохранение коллекции в файл
+     * Вывод коллекции
      */
     @Override
     public void execute() {

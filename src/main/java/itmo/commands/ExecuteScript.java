@@ -6,7 +6,7 @@ import itmo.io.Scannable;
 import itmo.manager.CommandsManager;
 import itmo.model.Dragon;
 /**
- * Класс отвечает за считывание команд из файла
+ * Класс отвечает за исполнение команд из файла
  */
 public class ExecuteScript implements Command{
 

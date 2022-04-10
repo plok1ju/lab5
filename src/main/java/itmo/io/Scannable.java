@@ -7,7 +7,7 @@ import java.io.IOException;
 public interface Scannable {
 
     /**
-     * Возвращает строку считанную из файла
+     * Возвращает считанную строку
      */
     String scanString() throws IOException;
 

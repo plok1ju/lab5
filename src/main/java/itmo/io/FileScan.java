@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 /**
- * Этот класс помогает читать данные из файла для команды ExecuteScript
+ * Этот класс помогает читать данные из файла
  */
 public class FileScan implements Scannable{
 

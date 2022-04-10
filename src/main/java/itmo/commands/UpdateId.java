@@ -30,7 +30,7 @@ public class UpdateId implements Command {
     private final Dragon dragon;
 
     /**
-     * Конструктор класса ReplaceIfLowe
+     * Конструктор класса UpdateId
      *
      * @param collection - Поле collection
      * @param id         - Поле id
