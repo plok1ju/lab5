@@ -55,11 +55,16 @@ public class ExecuteScript implements Command{
             FilesHistory.getInstance().addHistory(new File(fileName));
             String commandLine = scannable.scanString();
             while (commandLine != null){
+            try{
                 Command command = commandsManager.getCommand(commandLine, scannable, false);
                 command.execute();
                 commandLine = scannable.scanString();
 
             }
+            catch (Exception e){
+                System.out.println("Команда '" + commandLine + "' введена не корректно");
+                commandLine = scannable.scanString();
+            }}
         }
         catch (Exception e){
             System.out.println(e.getMessage());
