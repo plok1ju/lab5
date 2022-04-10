@@ -45,7 +45,7 @@ public class PersonBuilder {
         } else {
             String name = scannable.scanString();
             if (name.equals("")) {
-                throw new Exception("Поле name не может быть null! Исправьте файлик!");
+                throw new Exception();
             }
             person.setName(name);
 
