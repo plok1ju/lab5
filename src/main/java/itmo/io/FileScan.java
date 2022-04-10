@@ -32,4 +32,10 @@ public class FileScan implements Scannable{
     public String scanString() throws IOException {
         return reader.readLine();
     }
+
+    @Override
+    public boolean hasNextLine() throws IOException {
+        return reader.ready();
+    }
+
 }

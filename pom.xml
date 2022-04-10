@@ -23,7 +23,7 @@
             <artifactId>jackson-dataformat-xml</artifactId>
             <version>2.13.2</version>
         </dependency>
-        <!-- чтобы можно были xmlить дату -->
+        <!-- чтобы можно было xmlить дату -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>

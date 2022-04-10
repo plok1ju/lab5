@@ -1,5 +1,6 @@
 package itmo.io;
 
+import java.io.IOException;
 import java.util.Scanner;
 /**
  * Этот класс помогает читать данные с консоли
@@ -24,8 +25,16 @@ public class ConsoleScan implements Scannable {
      * @return - считанная строка
      */
     @Override
-    public String scanString() {
+    public String scanString() throws IOException {
+        if(!hasNextLine()){
+            System.exit(0);
+        }
         return scanner.nextLine();
+    }
+
+    @Override
+    public boolean hasNextLine() throws IOException {
+        return scanner.hasNextLine();
     }
 
 }

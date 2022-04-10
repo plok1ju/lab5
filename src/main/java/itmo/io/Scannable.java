@@ -11,4 +11,6 @@ public interface Scannable {
      */
     String scanString() throws IOException;
 
+    boolean hasNextLine() throws IOException;
+
 }
