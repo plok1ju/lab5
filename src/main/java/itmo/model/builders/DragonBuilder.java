@@ -160,14 +160,14 @@ public class DragonBuilder {
 
     private void buildPerson(Scannable scannable) throws Exception {
         if (isConsole) {
-            System.out.println("Задать значение убийцы дракона? Введите 'да' или 'нет'");
+            System.out.println("Задать значение убийцы дракона? Введите 'yes' или 'no'");
             String answer = scannable.scanString().toUpperCase(Locale.ROOT);
-            if (answer.contains("ДА")) {
+            if (answer.contains("YES")) {
                 PersonBuilder personBuilder = new PersonBuilder(isConsole);
                 dragon.setKiller(personBuilder.build(scannable));
                 return;
             }
-            if (answer.contains("НЕТ")) {
+            if (answer.contains("NO")) {
                 dragon.setKiller(null);
                 return;
             }
