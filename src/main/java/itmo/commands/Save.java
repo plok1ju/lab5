@@ -4,8 +4,6 @@ import itmo.collection.HashTableCollection;
 import itmo.manager.file.FileSaver;
 import itmo.model.Dragon;
 
-import java.io.IOException;
-
 /**
  * Класс отвечает за сохранение коллекции в файл xml
  */
@@ -31,7 +29,7 @@ public class Save implements Command {
      * Сохранение коллекции в файл
      */
     @Override
-    public void execute() throws IOException {
+    public void execute() throws Exception {
         FileSaver fileSaver = new FileSaver();
         fileSaver.saveInfo(collection);
 

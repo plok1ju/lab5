@@ -62,7 +62,7 @@ public class ExecuteScript implements Command{
 
                 }
                 catch (Exception e){
-                    System.out.println("Команда '" + commandLine + "' введена не корректно");
+                    System.out.println("Команда '" + commandLine + "' введена не корректно: " + e.getMessage());
                 }
                 commandLine = scannable.scanString();
             }

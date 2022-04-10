@@ -16,6 +16,7 @@ public class Main {
         try {
             collection = readerXml.returnCollect();
         } catch (Exception e) {
+            System.out.println("Что-то пошло не так: " + e.getMessage());
 
         }
         Scannable scannable = new ConsoleScan();
