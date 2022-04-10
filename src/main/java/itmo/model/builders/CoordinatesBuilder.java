@@ -10,6 +10,7 @@ public class CoordinatesBuilder {
 
     /**
      * Поле координаты дракона
+     * {@link Coordinates}
      */
     private Coordinates coordinates;
 
@@ -27,7 +28,12 @@ public class CoordinatesBuilder {
         this.isConsole = isConsole;
     }
 
-
+    /**
+     * Вызывает необходимые методы для добавления полей в объект класса Coordinates
+     *
+     * @param scannable - значение поля scannable
+     * @return coordinates   - значение объекта coordinates
+     */
     public Coordinates build(Scannable scannable) throws Exception {
         coordinates = new Coordinates();
         this.buildX(scannable);
@@ -36,6 +42,11 @@ public class CoordinatesBuilder {
 
     }
 
+    /**
+     * Метод добавляет поле x объекту класса Coordinates
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildX(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -53,6 +64,11 @@ public class CoordinatesBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле y объекту класса Coordinates
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildY(Scannable scannable) throws Exception {
         if (isConsole) {
             try {

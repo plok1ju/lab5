@@ -25,6 +25,11 @@ public enum DragonCharacter {
 
     }
 
+    /**
+     * Метод определяет, то ли значение добавляется в enum
+     *
+     * @return - характер дракона
+     */
     public static DragonCharacter parse(String characterString) throws Exception {
         try {
             return valueOf(characterString.toUpperCase(Locale.ROOT).trim());

@@ -6,16 +6,34 @@ import itmo.io.Scannable;
 import itmo.model.Color;
 import itmo.model.Dragon;
 import itmo.model.builders.DragonBuilder;
-
+/**
+ * Этот класс определяет команду
+ */
 public class CommandsManager {
 
+    /**
+     * Поле collection
+     * {@link HashTableCollection}
+     */
     private final HashTableCollection<Integer, Dragon> collection;
 
+    /**
+     * Конструктор класса CommandsManager
+     *
+     * @param collection - значение поля collection
+     */
     public CommandsManager(HashTableCollection<Integer, Dragon> collection) {
         this.collection = collection;
     }
 
-
+    /**
+     * Метод определяющий команду
+     *
+     * @param commandLine - значение поля commandLine
+     * @param scannable - значение поля scannable
+     * @param isConsole - значение поля isConsole
+     * @return - введенная команда
+     */
     public Command getCommand(String commandLine, Scannable scannable, boolean isConsole) throws Exception {
         String[] arrayLine = commandLine.split(" ");
         if (arrayLine.length == 0) {

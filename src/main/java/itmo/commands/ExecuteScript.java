@@ -5,17 +5,36 @@ import itmo.io.FileScan;
 import itmo.io.Scannable;
 import itmo.manager.CommandsManager;
 import itmo.model.Dragon;
-
+/**
+ * Класс отвечает за считывание команд из файла
+ */
 public class ExecuteScript implements Command{
 
+    /**
+     * Поле fileName
+     */
     private String fileName;
+
+    /**
+     * Поле collection
+     * {@link HashTableCollection}
+     */
     HashTableCollection<Integer, Dragon> collection;
 
+    /**
+     * Конструктор класса ExecuteScript
+     *
+     * @param fileName - Поле fileName
+     * @param collection - Поле collection
+     */
     public ExecuteScript(String fileName, HashTableCollection<Integer, Dragon> collection) {
         this.fileName = fileName;
         this.collection = collection;
     }
 
+    /**
+     * Переопределение метода execute
+     */
     @Override
     public void execute() throws Exception {
         Scannable scannable = new FileScan(fileName);

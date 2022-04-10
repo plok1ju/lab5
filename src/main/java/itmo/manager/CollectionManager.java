@@ -5,7 +5,7 @@ import itmo.model.Dragon;
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.TreeMap;
-
+//TODO можно удалить?
 public class CollectionManager {
 
     public int[] getKeys(Hashtable<Integer, Dragon> collect) {

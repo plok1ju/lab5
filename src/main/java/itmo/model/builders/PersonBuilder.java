@@ -12,15 +12,33 @@ import java.time.format.DateTimeFormatter;
  */
 public class PersonBuilder {
 
+    /**
+     * Поле класса Person
+     * {@link Person}
+     */
     private final Person person;
+
+    /**
+     * Поле определяющее ввод из консоли
+     */
     private final boolean isConsole;
 
-
+    /**
+     * Конструктор класса PersonBuilder
+     *
+     * @param isConsole  - значение поля isConsole
+     */
     public PersonBuilder(boolean isConsole) {
         person = new Person();
         this.isConsole = isConsole;
     }
 
+    /**
+     * Вызывает необходимые методы для добавления полей в объект класса Person
+     *
+     * @param scannable - значение поля scannable
+     * @return person   - значение поля person
+     */
     public Person build(Scannable scannable) throws Exception {
         this.buildName(scannable);
         this.buildBirthday(scannable);
@@ -31,6 +49,11 @@ public class PersonBuilder {
         return this.person;
     }
 
+    /**
+     * Метод добавляет поле name объекту класса Person
+     *
+     * @param scannable - значение объекта scannable
+     */
     private void buildName(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -45,13 +68,18 @@ public class PersonBuilder {
         } else {
             String name = scannable.scanString();
             if (name.equals("")) {
-                throw new Exception("Что-то"); //TODO можно что то добавить а можно и нет
+                throw new Exception();
             }
             person.setName(name);
 
         }
     }
 
+    /**
+     * Метод добавляет поле birthday объекту класса Person
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildBirthday(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -68,6 +96,11 @@ public class PersonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле height объекту класса Person
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildHeight(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -97,6 +130,11 @@ public class PersonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле passportId объекту класса Person
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildPassportID(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -115,6 +153,11 @@ public class PersonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле nationality объекту класса Person
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildNationality(Scannable scannable) throws Exception {
         if (isConsole) {
             try {

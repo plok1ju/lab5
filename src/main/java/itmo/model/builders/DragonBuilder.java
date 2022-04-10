@@ -15,14 +15,33 @@ import java.util.Locale;
  */
 public class DragonBuilder {
 
+    /**
+     * Поле класса Dragon
+     * {@link Dragon}
+     */
     private final Dragon dragon;
+
+    /**
+     * Поле определяющее ввод из консоли
+     */
     private final boolean isConsole;
 
+    /**
+     * Конструктор класса DragonBuilder
+     *
+     * @param isConsole  - значение поля isConsole
+     */
     public DragonBuilder(boolean isConsole) {
         this.isConsole = isConsole;
         dragon = new Dragon();
     }
 
+    /**
+     * Вызывает необходимые методы для добавления полей в объект класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     * @return dragon   - значение объекта dragon
+     */
     public Dragon build(Scannable scannable) throws Exception {
         this.buildId();
         this.buildName(scannable);
@@ -38,10 +57,18 @@ public class DragonBuilder {
 
     }
 
+    /**
+     * Метод добавляет поле id объекту класса Dragon
+     */
     private void buildId() throws Exception {
         dragon.setId(IdGenerator.getId());
     }
 
+    /**
+     * Метод добавляет поле name объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildName(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -59,6 +86,11 @@ public class DragonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле age объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildAge(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -88,6 +120,11 @@ public class DragonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле description объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildDescription(Scannable scannable) throws IOException {
         if (isConsole) {
             try {
@@ -112,6 +149,11 @@ public class DragonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле color объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildColor(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -129,6 +171,11 @@ public class DragonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле character объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildCharacter(Scannable scannable) throws Exception {
         if (isConsole) {
             try {
@@ -146,18 +193,31 @@ public class DragonBuilder {
         }
     }
 
+    /**
+     * Метод добавляет поле coordinates объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildCoordinates(Scannable scannable) throws Exception {
         CoordinatesBuilder coordinatesBuilder = new CoordinatesBuilder(isConsole);
         dragon.setCoordinates(coordinatesBuilder.build(scannable));
 
     }
 
+    /**
+     * Метод добавляет поле creationDate объекту класса Dragon
+     */
     private void setCreationDate() throws Exception {
         Date date = new Date();
         dragon.setCreationDate(date);
 
     }
 
+    /**
+     * Метод добавляет поле killer объекту класса Dragon
+     *
+     * @param scannable - значение поля scannable
+     */
     private void buildPerson(Scannable scannable) throws Exception {
         if (isConsole) {
             System.out.println("Задать значение убийцы дракона? Введите 'да' или 'нет'");

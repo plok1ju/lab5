@@ -55,6 +55,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
 
     /**
      * Поле убийца дракона
+     * {@link Person}
      */
     private Person killer; //Поле может быть null
 

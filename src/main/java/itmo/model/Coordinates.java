@@ -74,6 +74,11 @@ public class Coordinates {
         this.y = y;
     }
 
+    /**
+     * Переопределение метода toString
+     *
+     * @return - значения всех полей класса Coordinates
+     */
     @Override
     public String toString() {
         return "(" + x + "; " + y + ")";
