@@ -49,11 +49,14 @@ public class ExecuteScript implements Command{
         }
         Scannable scannable = new FileScan(fileName);
         CommandsManager commandsManager = new CommandsManager(collection);
+
+        if (FilesHistory.getInstance().containsFile(new File(fileName))){
+            throw new CollectionException("Чел ты...\nЧуть рекурсию не вызвал...");
+        }
+        FilesHistory.getInstance().addHistory(new File(fileName));
+
         try{
-            if (FilesHistory.getInstance().containsFile(new File(fileName))){
-                throw new CollectionException("Чел ты...\nЧуть рекурсию не вызвал...");
-            }
-            FilesHistory.getInstance().addHistory(new File(fileName));
+
             String commandLine = scannable.scanString();
             while (commandLine != null){
                 try{
