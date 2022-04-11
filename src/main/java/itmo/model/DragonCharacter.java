@@ -30,6 +30,7 @@ public enum DragonCharacter {
     /**
      * Метод определяет, то ли значение добавляется в enum
      *
+     * @param characterString
      * @return - характер дракона
      */
     public static DragonCharacter parse(String characterString) throws Exception {

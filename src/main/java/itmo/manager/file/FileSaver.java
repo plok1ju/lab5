@@ -19,6 +19,8 @@ public class FileSaver {
 
     /**
      * Метод отвечает за сохранение коллекции в файл xml
+     *
+     * @param dragons
      */
     public void saveInfo(HashTableCollection<Integer, Dragon> dragons) throws Exception {
 

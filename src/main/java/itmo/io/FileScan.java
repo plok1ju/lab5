@@ -47,6 +47,11 @@ public class FileScan implements Scannable {
         return reader.ready();
     }
 
+    /**
+     * Возвращает число строк
+     *
+     * @return count - возвращает count
+     */
     @Override
     public int linesCount() {
         return count;

@@ -16,7 +16,7 @@ public class FileManager {
      */
     public File getFile() throws CollectionException {
         // VAR - переменная окружения
-        if (System.getenv("VAR") == null){
+        if (System.getenv("VAR") == null) {
             throw new CollectionException("Не введена переменная окружения");
         }
         File file = new File(System.getenv("VAR"));
