@@ -26,12 +26,12 @@ public class DragonBuilder {
      */
     private final boolean isConsole;
 
-    private Scannable scannable;
+    private final Scannable scannable;
 
     /**
      * Конструктор класса DragonBuilder
      *
-     * @param isConsole  - значение поля isConsole
+     * @param isConsole - значение поля isConsole
      */
     public DragonBuilder(boolean isConsole, Scannable scannable) {
         this.scannable = scannable;

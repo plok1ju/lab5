@@ -30,9 +30,9 @@ public class ReplaceIfLowe implements Command {
     /**
      * Конструктор класса ReplaceIfLowe
      *
-     * @param collection - Поле collection
-     * @param key        - Поле key
-     * @param dragonBuilder     - Поле dragonBuilder
+     * @param collection    - Поле collection
+     * @param key           - Поле key
+     * @param dragonBuilder - Поле dragonBuilder
      */
     public ReplaceIfLowe(HashTableCollection<Integer, Dragon> collection, Integer key, DragonBuilder dragonBuilder) {
         this.collection = collection;

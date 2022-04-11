@@ -112,7 +112,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
             throw new CollectionException("Поле id не может быть null!");
         } else if (id <= 0) {
             throw new CollectionException("Поле id должно быть больше 0!");
-        }//TODO проверка уникальный ли ключ добавляется? сделать через получение ключей которые уже в коллекции мб?
+        }
 
         this.id = id;
     }
@@ -331,7 +331,7 @@ public class Dragon implements Colorable, Ageable, Comparable<Dragon> {
      */
     @Override
     public int compareTo(Dragon o) {
-        if (o == null){
+        if (o == null) {
             return 1;
         }
         return this.name.compareTo(o.getName());

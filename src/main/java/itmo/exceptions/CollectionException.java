@@ -1,10 +1,22 @@
 package itmo.exceptions;
 
-public class CollectionException extends Exception{
+/**
+ * Класс ошибки
+ */
+public class CollectionException extends Exception {
 
-    public CollectionException(){}
+    /**
+     * Пустой конструктор класса CollectionException
+     */
+    public CollectionException() {
+    }
 
-    public CollectionException(String message){
+    /**
+     * Конструктор класса CollectionException
+     *
+     * @param message - поле message
+     */
+    public CollectionException(String message) {
         super(message);
     }
 

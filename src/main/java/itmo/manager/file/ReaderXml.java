@@ -26,7 +26,7 @@ public class ReaderXml {
         FileManager fileManager = new FileManager();
         File file = fileManager.getFile();
 
-        if (!file.canRead()){
+        if (!file.canRead()) {
             throw new CollectionException("Похоже файл закрыт для чтения");
         }
         XmlMapper xmlMapper = new XmlMapper(); // будет сам записывать дракона

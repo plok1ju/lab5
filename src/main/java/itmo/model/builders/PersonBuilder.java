@@ -27,7 +27,7 @@ public class PersonBuilder {
     /**
      * Конструктор класса PersonBuilder
      *
-     * @param isConsole  - значение поля isConsole
+     * @param isConsole - значение поля isConsole
      */
     public PersonBuilder(boolean isConsole) {
         person = new Person();
