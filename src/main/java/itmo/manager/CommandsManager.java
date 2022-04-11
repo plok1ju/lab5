@@ -38,7 +38,8 @@ public class CommandsManager {
      */
     public Command getCommand(String commandLine, Scannable scannable, boolean isConsole) throws Exception {
         try {
-            String[] arrayLine = commandLine.split(" ");
+            String[] arrayLine = commandLine.trim().replaceAll("\\s+", " ").split(" ");
+
             if (arrayLine.length == 0) {
                 throw new CollectionException("Нет команд");
 
