@@ -1,8 +1,13 @@
 package itmo.commands;
 
 import itmo.collection.HashTableCollection;
+import itmo.exceptions.CollectionException;
 import itmo.model.Dragon;
 import itmo.model.builders.DragonBuilder;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * Класс отвечает за замену элемента по ключу
@@ -47,6 +52,13 @@ public class ReplaceIfLowe implements Command {
      */
     @Override
     public void execute() throws Exception {
+        List<Integer> keys = collection.getKeysAsList();
+        Stream<Integer> integerStream = keys.stream().filter(key -> key.equals(collection.get(key)));
+        Optional<Integer> optionalKey = integerStream.findAny();
+        if (!optionalKey.isPresent()) {
+            throw new CollectionException("Нет такого key");
+
+        }
         Dragon dragon = dragonBuilder.build();
         if (dragon.compareTo(collection.get(key)) < 0) {
             collection.remove(key);

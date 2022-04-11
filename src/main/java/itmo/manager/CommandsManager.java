@@ -45,17 +45,23 @@ public class CommandsManager {
         String command = arrayLine[0];
         switch (command) {
             case "clear": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new Clear(collection);
             }
 
             case "show": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new Show(collection);
             }
 
             case "info": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new Info(collection);
 
             }
@@ -71,18 +77,24 @@ public class CommandsManager {
             }
 
             case "exit": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new Exit();
 
             }
 
             case "help": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new Help();
             }
 
             case "print_descending": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new PrintDescending(collection);
             }
 
@@ -114,23 +126,32 @@ public class CommandsManager {
             }
 
             case "save": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new Save(collection);
             }
 
             case "sum_of_age": {
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 return new SumOfAge(collection);
             }
 
 
             case "remove_lower": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 DragonBuilder dragonBuilder = new DragonBuilder(isConsole, scannable);
                 return new RemoveLower(collection, dragonBuilder);
             }
 
             case "replace_if_lower": {
-
+                if (arrayLine.length > 1) {
+                    throw new CollectionException("Команда введена некорректно");
+                }
                 if (arrayLine.length < 2) {
                     throw new CollectionException("Введены не все поля");
                 }
@@ -148,9 +169,7 @@ public class CommandsManager {
                 return new UpdateId(collection, id, dragonBuilder);
 
             }
-            default: {
-                throw new CollectionException("Такой команды нет :(");
-            }
+
 
             case "execute_script": {
 
@@ -159,6 +178,9 @@ public class CommandsManager {
                 }
                 String nameFile = arrayLine[1];
                 return new ExecuteScript(nameFile, collection);
+            }
+            default: {
+                throw new CollectionException("Такой команды нет :(");
             }
 
         }

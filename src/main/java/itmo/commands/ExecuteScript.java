@@ -56,17 +56,18 @@ public class ExecuteScript implements Command {
             }
             FilesHistory.getInstance().addHistory(new File(fileName));
             String commandLine = scannable.scanString();
-            while (commandLine != null) {
-                try {
-                    Command command = commandsManager.getCommand(commandLine, scannable, false);
-                    command.execute();
+                while (commandLine != null) {
+                    try {
+                        Command command = commandsManager.getCommand(commandLine, scannable, false);
+                        command.execute();
 
-                } catch (Exception e) {
-                    System.out.println("Команда '" + commandLine + "' введена не корректно: " + e.getMessage());
+                    } catch (Exception e) {
+                        throw new CollectionException("В файле " + fileName  + " команда '" + commandLine + "' введена не корректно: " + e.getMessage());
 
+                    }
+                    commandLine = scannable.scanString();
                 }
-                commandLine = scannable.scanString();
-            }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
