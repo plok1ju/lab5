@@ -17,4 +17,5 @@ public interface Scannable {
      */
     boolean hasNextLine() throws IOException;
 
+    int linesCount();
 }

@@ -37,6 +37,7 @@ public class CommandsManager {
      * @return - введенная команда
      */
     public Command getCommand(String commandLine, Scannable scannable, boolean isConsole) throws Exception {
+        try{
         String[] arrayLine = commandLine.split(" ");
         if (arrayLine.length == 0) {
             throw new CollectionException("Нет команд");
@@ -161,6 +162,10 @@ public class CommandsManager {
                 return new ExecuteScript(nameFile, collection);
             }
 
+        }
+        }
+        catch (Exception e){
+            throw new CollectionException("Ошибка на строчке " + scannable.linesCount() + ": " + e.getMessage());
         }
 
     }

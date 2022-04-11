@@ -33,7 +33,7 @@ public class Show implements Command {
         List<?> keys = collection.getKeysAsList();
         keys.forEach(key -> {
             System.out.println("=====");
-            System.out.println("Ключ элемента: " + key + " " + collection.get(key).toString());
+            System.out.println("Ключ элемента: " + key + "\n" + collection.get(key).toString());
             System.out.println("=====");
         });
 

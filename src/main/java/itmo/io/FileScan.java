@@ -15,6 +15,8 @@ public class FileScan implements Scannable {
      */
     private final BufferedReader reader;
 
+    private int count;
+
     /**
      * Конструктор класса FileScan
      *
@@ -31,17 +33,23 @@ public class FileScan implements Scannable {
      */
     @Override
     public String scanString() throws IOException {
+        ++count;
         return reader.readLine();
     }
 
     /**
-     * Метод проверяет есть ли файл в списке файлов
+     * Метод проверяет читается ли файл
      *
-     * @return - читается ли файл
+     * @return - true - если читается, false - если нет
      */
     @Override
     public boolean hasNextLine() throws IOException {
         return reader.ready();
+    }
+
+    @Override
+    public int linesCount() {
+        return count;
     }
 
 }

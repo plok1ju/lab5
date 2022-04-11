@@ -13,6 +13,8 @@ public class ConsoleScan implements Scannable {
      */
     private final Scanner scanner;
 
+    private int count;
+
     /**
      * Конструктор класса ConsoleScan
      */
@@ -30,12 +32,23 @@ public class ConsoleScan implements Scannable {
         if (!hasNextLine()) {
             System.exit(0);
         }
+        ++count;
         return scanner.nextLine();
     }
 
+    /**
+     * Переопределение метода hasNextLine
+     *
+     * @return - true - если есть линия, false - если нет
+     */
     @Override
     public boolean hasNextLine() throws IOException {
         return scanner.hasNextLine();
+    }
+
+    @Override
+    public int linesCount() {
+        return count;
     }
 
 }
