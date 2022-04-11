@@ -1,7 +1,11 @@
 package itmo.commands;
 
-import java.io.IOException;
-
+/**
+ * Интерфейс объекта, который отвечает за выполнение команд
+ */
 public interface Command {
-    void execute() throws IOException;
+    /**
+     * Обеспечивает выполнение команд
+     */
+    void execute() throws Exception;
 }

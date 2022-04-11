@@ -2,25 +2,53 @@ package itmo.commands;
 
 import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
+import itmo.model.builders.DragonBuilder;
 
-import java.io.IOException;
-//заменить значение по ключу, если новое значение элемента меньше старого
-public class ReplaceIfLowe implements Command{
+/**
+ * Класс отвечает за замену элемента по ключу
+ * Если значение нового элемента меньше старого
+ */
+public class ReplaceIfLowe implements Command {
 
+    /**
+     * Поле collection
+     * {@link HashTableCollection}
+     */
     private final HashTableCollection<Integer, Dragon> collection;
+
+    /**
+     * Поле key
+     */
     private final Integer key;
-    private final Dragon dragon;
 
+    /**
+     * Поле dragonBuilder
+     * {@link DragonBuilder}
+     */
+    private final DragonBuilder dragonBuilder;
 
-    public ReplaceIfLowe(HashTableCollection<Integer, Dragon> collection, Integer key, Dragon dragon) {
+    /**
+     * Конструктор класса ReplaceIfLowe
+     *
+     * @param collection    - Поле collection
+     * @param key           - Поле key
+     * @param dragonBuilder - Поле dragonBuilder
+     */
+    public ReplaceIfLowe(HashTableCollection<Integer, Dragon> collection, Integer key, DragonBuilder dragonBuilder) {
         this.collection = collection;
         this.key = key;
-        this.dragon = dragon;
+        this.dragonBuilder = dragonBuilder;
     }
 
+
+    /**
+     * Переопределение метода execute
+     * Замена элемента, если значение нового элемента меньше старого
+     */
     @Override
-    public void execute() throws IOException {
-        if ( dragon.compareTo(collection.get(key)) < 0){
+    public void execute() throws Exception {
+        Dragon dragon = dragonBuilder.build();
+        if (dragon.compareTo(collection.get(key)) < 0) {
             collection.remove(key);
             collection.put(key, dragon);
         }

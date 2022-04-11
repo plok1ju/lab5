@@ -1,11 +1,22 @@
 package itmo.commands;
 
-public class Exit implements Command{
+/**
+ * Класс отвечает за завершение программы
+ */
+public class Exit implements Command {
 
-    public Exit(){}
+    /**
+     * Пустой конструктор класса Exit
+     */
+    public Exit() {
+    }
 
+    /**
+     * Переопределение метода execute
+     * Завершение программы
+     */
     @Override
-    public void execute(){
+    public void execute() {
         System.exit(0);
     }
 }

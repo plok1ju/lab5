@@ -5,34 +5,40 @@ import itmo.model.Ageable;
 
 import java.util.List;
 
-public class SumOfAge implements Command{
+/**
+ * Класс отвечает за вывод суммы полей age драконов
+ */
+public class SumOfAge implements Command {
 
-    private HashTableCollection<?, ? extends Ageable> collection;
+    /**
+     * Поле collection
+     * {@link HashTableCollection}
+     */
+    private final HashTableCollection<?, ? extends Ageable> collection;
+
+    /**
+     * Поле sumAge
+     */
     private Integer sumAge = 0;
 
-
+    /**
+     * Конструктор класса SumOfAge
+     *
+     * @param collection - Поле collection
+     */
     public SumOfAge(HashTableCollection<?, ? extends Ageable> collection) {
         this.collection = collection;
     }
 
-//    public void sum(Hashtable<Integer, Dragon> dragons){
-//
-//        int sum = 0;
-//        Enumeration hashKeys = dragons.keys();
-//        while (hashKeys.hasMoreElements()){
-//            Integer str = (Integer) hashKeys.nextElement();
-//            Dragon dragon= dragons.get(str);
-//            sum += dragon.getAge();
-//        }
-//
-//        System.out.println("Sum of age is: " + sum);
-//    }
-
+    /**
+     * Переопределение метода execute
+     * Вывод суммы полей age всех элементов коллекции
+     */
     @Override
-    public void execute(){
+    public void execute() {
         List<?> keys = collection.getKeysAsList();
-        keys.forEach(key -> sumAge += collection.get(key).getAge());
-        System.out.println("Sum of age is: " + sumAge);
+        keys.forEach(key -> sumAge += (collection.get(key).getAge() == null ? 0 : collection.get(key).getAge()));
+        System.out.println("Сумма возрастов: " + sumAge);
 
     }
 }

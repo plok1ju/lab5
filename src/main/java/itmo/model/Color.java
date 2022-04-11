@@ -1,23 +1,43 @@
 package itmo.model;
 
+import itmo.exceptions.CollectionException;
+
+import java.util.Locale;
+
+/**
+ * Enum с наполнением возможного цвета дракона
+ */
 public enum Color {
-    BLUE("Blue"),
-    YELLOW("Yellow"),
-    ORANGE("Orange"),
-    WHITE("White");
+    BLUE,
+    YELLOW,
+    ORANGE,
+    WHITE;
 
-    private String color;
+    /**
+     * Получение элементов enum
+     *
+     * @return - строка со значениями
+     */
+    public static String getValues() {
+        Color[] colorsArray = Color.values();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Color color : colorsArray) {
+            stringBuilder.append(color).append(", ");
+        }
+        return stringBuilder.toString();
 
-    Color(String color) {
-        this.color = color;
     }
 
-    public String getColor() {
-        return color;
+    /**
+     * Метод определяет, то ли значение добавляется в enum
+     *
+     * @return - цвет
+     */
+    public static Color parse(String stringColor) throws Exception {
+        try {
+            return valueOf(stringColor.toUpperCase(Locale.ROOT).trim());
+        } catch (Exception e) {
+            throw new CollectionException("В " + Color.class.getSimpleName() + " нет константы " + stringColor + " :(");
+        }
     }
-
-    public void setColor() {
-        this.color = color;
-    }
-
 }

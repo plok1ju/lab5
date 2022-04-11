@@ -6,21 +6,46 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 
-public class HashTableCollection<K, T> extends Hashtable<K, T>{
+/**
+ * класс хранит коллекцию и время создания коллекции
+ */
+public class HashTableCollection<K, T> extends Hashtable<K, T> {
 
+    /**
+     * Поле время создания коллекции
+     */
     private LocalDateTime dateTime = LocalDateTime.now();
 
-    public HashTableCollection(){}
+    /**
+     * Пустой конструктор класса HashTableCollection
+     */
+    public HashTableCollection() {
+    }
 
+    /**
+     * Получение даты создания коллекции
+     *
+     * @return - значение поля dateTime
+     */
     public LocalDateTime getDateTime() {
         return dateTime;
     }
 
+    /**
+     * Добавление даты создания коллекции
+     *
+     * @param dateTime - значение поля dateTime
+     */
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
-    public List<K> getKeysAsList(){
+    /**
+     * Получение списка всех ключей для параметров коллекции
+     *
+     * @return - возвращение коллекции типа ArrayList
+     */
+    public List<K> getKeysAsList() {
         return new ArrayList<K>(Collections.list(this.keys()));
     }
 }
