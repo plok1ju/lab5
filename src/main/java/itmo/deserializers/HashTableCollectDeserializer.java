@@ -1,9 +1,9 @@
 package itmo.deserializers;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import itmo.KeyDragonPair;
 import itmo.collection.HashTableCollection;
 import itmo.model.Dragon;
+import itmo.model.KeyDragonPair;
 
 import java.time.LocalDateTime;
 

@@ -34,9 +34,9 @@ public class UpdateId implements Command {
     /**
      * Конструктор класса UpdateId
      *
-     * @param collection - Поле collection
-     * @param id         - Поле id
-     * @param dragonBuilder     - Поле dragonBuilder
+     * @param collection    - Поле collection
+     * @param id            - Поле id
+     * @param dragonBuilder - Поле dragonBuilder
      */
     public UpdateId(HashTableCollection<Integer, Dragon> collection, Long id, DragonBuilder dragonBuilder) {
         this.collection = collection;
@@ -56,7 +56,7 @@ public class UpdateId implements Command {
         if (!optionalKey.isPresent()) {
             throw new CollectionException("Нет такого id");
         }
-        Dragon dragon = dragonBuilder.build();;
+        Dragon dragon = dragonBuilder.build();
         dragon.setId(this.id);
         Integer dragonKey = optionalKey.get();
         keys.stream().filter(key -> id.equals(collection.get(key).getId())).forEach(collection::remove);

@@ -24,7 +24,7 @@ public class FileSaver {
 
         FileManager fileManager = new FileManager();
         File file = fileManager.getFile();
-        if (!file.canWrite()){
+        if (!file.canWrite()) {
             throw new CollectionException("Похоже файл закрыт для записи");
         }
         HashTableCollectSerializer serializer = new HashTableCollectSerializer(dragons);

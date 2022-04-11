@@ -2,6 +2,7 @@ package itmo.io;
 
 import java.io.IOException;
 import java.util.Scanner;
+
 /**
  * Этот класс помогает читать данные с консоли
  */
@@ -26,7 +27,7 @@ public class ConsoleScan implements Scannable {
      */
     @Override
     public String scanString() throws IOException {
-        if(!hasNextLine()){
+        if (!hasNextLine()) {
             System.exit(0);
         }
         return scanner.nextLine();

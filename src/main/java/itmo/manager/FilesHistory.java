@@ -4,30 +4,65 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Этот класс хранит файлы
+ */
 public class FilesHistory {
 
+    /**
+     * Объект класса FilesHistory
+     */
     private static FilesHistory instance = null;
 
-    private List<File> filePaths = new ArrayList<>();
+    /**
+     * Список файлов
+     */
+    private final List<File> filePaths = new ArrayList<>();
 
-    private FilesHistory(){}
+    /**
+     * Пустой конструктор FilesHistory
+     */
+    private FilesHistory() {
+    }
 
-    public static FilesHistory getInstance(){
-        if(instance == null){
+    /**
+     * Метод возвращает единственный объект класса FilesHistory
+     *
+     * @return instance - поле instance
+     */
+    public static FilesHistory getInstance() {
+        if (instance == null) {
             instance = new FilesHistory();
         }
         return instance;
     }
 
-    public void addHistory(File file){
+    /**
+     * Метод добавляет файл в список с файлами
+     *
+     * @param file - поле file
+     */
+    public void addHistory(File file) {
         filePaths.add(file);
     }
 
-    public boolean containsFile(File file){
-        return filePaths.stream().anyMatch(file1 -> file1.getAbsolutePath().equals(file.getAbsolutePath()));
+    /**
+     * Метод проверяет есть ли файл в списке файлов
+     *
+     * @param file - поле file
+     * @return existFile - есть ли файл в списке
+     */
+    public boolean containsFile(File file) {
+        boolean existFile = filePaths.stream().anyMatch(file1 -> file1.getAbsolutePath().equals(file.getAbsolutePath()));
+        return existFile;
     }
 
-    public void removeFile(File file){
+    /**
+     * Метод удаляет файл из списка файлов
+     *
+     * @param file - поле file
+     */
+    public void removeFile(File file) {
         filePaths.removeIf(file1 -> file1.getAbsolutePath().equals(file.getAbsolutePath()));
     }
 }

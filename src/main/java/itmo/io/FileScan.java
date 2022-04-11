@@ -4,15 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 /**
  * Этот класс помогает читать данные из файла
  */
-public class FileScan implements Scannable{
+public class FileScan implements Scannable {
 
     /**
      * Поле reader
      */
-    private BufferedReader reader;
+    private final BufferedReader reader;
 
     /**
      * Конструктор класса FileScan
@@ -33,6 +34,11 @@ public class FileScan implements Scannable{
         return reader.readLine();
     }
 
+    /**
+     * Метод проверяет есть ли файл в списке файлов
+     *
+     * @return - читается ли файл
+     */
     @Override
     public boolean hasNextLine() throws IOException {
         return reader.ready();

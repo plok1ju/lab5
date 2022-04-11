@@ -7,6 +7,7 @@ import itmo.io.Scannable;
 import itmo.model.Color;
 import itmo.model.Dragon;
 import itmo.model.builders.DragonBuilder;
+
 /**
  * Этот класс определяет команду
  */
@@ -31,8 +32,8 @@ public class CommandsManager {
      * Метод определяющий команду
      *
      * @param commandLine - значение поля commandLine
-     * @param scannable - значение поля scannable
-     * @param isConsole - значение поля isConsole
+     * @param scannable   - значение поля scannable
+     * @param isConsole   - значение поля isConsole
      * @return - введенная команда
      */
     public Command getCommand(String commandLine, Scannable scannable, boolean isConsole) throws Exception {
@@ -151,9 +152,9 @@ public class CommandsManager {
                 throw new CollectionException("Такой команды нет :(");
             }
 
-            case "execute_script" :{
+            case "execute_script": {
 
-                if (arrayLine.length < 2){
+                if (arrayLine.length < 2) {
                     throw new CollectionException("Введены не все поля");
                 }
                 String nameFile = arrayLine[1];

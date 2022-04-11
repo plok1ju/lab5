@@ -26,8 +26,8 @@ public class RemoveLower implements Command {
     /**
      * Конструктор класса RemoveLower
      *
-     * @param collection - Поле collection
-     * @param dragonBuilder     - Поле dragonBuilder
+     * @param collection    - Поле collection
+     * @param dragonBuilder - Поле dragonBuilder
      */
     public RemoveLower(HashTableCollection<Integer, Dragon> collection, DragonBuilder dragonBuilder) {
         this.collection = collection;

@@ -1,6 +1,4 @@
-package itmo;
-
-import itmo.model.Dragon;
+package itmo.model;
 
 /**
  * Этот класс хранит элемент дракон и ключ присвоенный дракону

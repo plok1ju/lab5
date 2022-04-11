@@ -1,6 +1,7 @@
 package itmo.commands;
 
 import itmo.collection.HashTableCollection;
+
 /**
  * Класс отвечает за очищение коллекции
  */
