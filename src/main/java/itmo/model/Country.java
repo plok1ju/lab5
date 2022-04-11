@@ -30,6 +30,7 @@ public enum Country {
     /**
      * Метод определяет, то ли значение добавляется в enum
      *
+     * @param countryString
      * @return - страна рождения
      */
     public static Country parse(String countryString) throws Exception {

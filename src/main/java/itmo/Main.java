@@ -11,7 +11,7 @@ import itmo.model.Dragon;
 public class Main {
     private static HashTableCollection<Integer, Dragon> collection = new HashTableCollection<>();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         ReaderXml readerXml = new ReaderXml();
         try {
             collection = readerXml.returnCollect();
@@ -28,7 +28,7 @@ public class Main {
     private static void getCommand(CommandsManager commandsManager, Scannable scannable) {
         try {
             System.out.println("Введите команду: ");
-            Command command = commandsManager.getCommand(scannable.scanString(), scannable, true);
+            Command command = commandsManager.getCommand(scannable.scanString().trim(), scannable, true);
             command.execute();
 
         } catch (Exception e) {
@@ -36,6 +36,7 @@ public class Main {
         }
         getCommand(commandsManager, scannable);
     }
+
 }
 
 

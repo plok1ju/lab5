@@ -7,6 +7,8 @@ public interface Colorable {
 
     /**
      * Возвращает цвет
+     *
+     * @return - цвет
      */
     Color getColor();
 

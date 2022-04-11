@@ -46,6 +46,11 @@ public class ConsoleScan implements Scannable {
         return scanner.hasNextLine();
     }
 
+    /**
+     * Возвращает число строк
+     *
+     * @return count - возвращает count
+     */
     @Override
     public int linesCount() {
         return count;

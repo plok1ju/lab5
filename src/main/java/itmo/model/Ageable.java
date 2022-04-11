@@ -7,6 +7,8 @@ public interface Ageable {
 
     /**
      * Возвращает возраст
+     *
+     * @return age
      */
     Integer getAge();
 }

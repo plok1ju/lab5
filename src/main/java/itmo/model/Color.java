@@ -31,6 +31,7 @@ public enum Color {
     /**
      * Метод определяет, то ли значение добавляется в enum
      *
+     * @param stringColor - цвет
      * @return - цвет
      */
     public static Color parse(String stringColor) throws Exception {

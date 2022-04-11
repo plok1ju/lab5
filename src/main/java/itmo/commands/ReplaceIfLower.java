@@ -8,7 +8,7 @@ import itmo.model.builders.DragonBuilder;
  * Класс отвечает за замену элемента по ключу
  * Если значение нового элемента меньше старого
  */
-public class ReplaceIfLowe implements Command {
+public class ReplaceIfLower implements Command {
 
     /**
      * Поле collection
@@ -34,7 +34,7 @@ public class ReplaceIfLowe implements Command {
      * @param key           - Поле key
      * @param dragonBuilder - Поле dragonBuilder
      */
-    public ReplaceIfLowe(HashTableCollection<Integer, Dragon> collection, Integer key, DragonBuilder dragonBuilder) {
+    public ReplaceIfLower(HashTableCollection<Integer, Dragon> collection, Integer key, DragonBuilder dragonBuilder) {
         this.collection = collection;
         this.key = key;
         this.dragonBuilder = dragonBuilder;
